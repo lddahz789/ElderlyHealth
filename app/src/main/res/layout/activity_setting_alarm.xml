@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/titleLayout"
+        layout="@layout/tool_bar" />
+
+    <EditText
+        android:id="@+id/hour"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_100px"
+        android:layout_below="@+id/titleLayout"
+        android:layout_marginLeft="@dimen/size_30px"
+        android:layout_marginRight="@dimen/size_30px"
+        android:layout_marginTop="@dimen/size_60px"
+        android:background="@drawable/edit_bg"
+        android:hint="@string/input_alarm_hour"
+        android:inputType="number"
+        android:textSize="@dimen/size_36px" />
+
+    <EditText
+        android:id="@+id/minute"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_100px"
+        android:layout_below="@+id/hour"
+        android:layout_marginLeft="@dimen/size_30px"
+        android:layout_marginRight="@dimen/size_30px"
+        android:layout_marginTop="@dimen/size_60px"
+        android:background="@drawable/edit_bg"
+        android:hint="@string/input_alarm_minute"
+        android:inputType="number"
+        android:padding="@dimen/size_30px"
+        android:textSize="@dimen/size_36px" />
+
+    <EditText
+        android:id="@+id/message"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_100px"
+        android:layout_below="@+id/minute"
+        android:layout_marginLeft="@dimen/size_30px"
+        android:layout_marginRight="@dimen/size_30px"
+        android:layout_marginTop="@dimen/size_60px"
+        android:background="@drawable/edit_bg"
+        android:hint="@string/input_alarm_message"
+        android:padding="@dimen/size_30px"
+        android:textSize="@dimen/size_36px" />
+
+    <Button
+        android:text="@string/add_alarm"
+        android:textColor="@android:color/white"
+        android:id="@+id/set"
+        android:textSize="@dimen/size_36px"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_100px"
+        android:layout_alignParentBottom="true"
+        android:background="@color/c_5cacee" />
+</RelativeLayout>

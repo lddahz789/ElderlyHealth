@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/titleLayout"
+        layout="@layout/tool_bar" />
+
+    <LinearLayout
+        android:layout_marginTop="@dimen/size_30px"
+        android:id="@+id/chartView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleLayout"
+        android:orientation="horizontal">
+
+        <com.example.tommorow.view.PieChartView
+            android:id="@+id/eat_pie_chart"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@android:color/white"
+            android:paddingBottom="40dp"
+            android:paddingLeft="20dp"
+            android:visibility="visible"
+            app:circleRadius="@dimen/size_160px"
+            app:textSize="13sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/choose_Data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chartView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/size_60px"
+        android:gravity="center"
+        android:paddingTop="@dimen/size_30px" />
+
+    <com.example.tommorow.view.RulerView
+        android:id="@+id/rulerView"
+        android:layout_width="match_parent"
+        android:layout_height="76.7dp"
+        android:layout_below="@+id/choose_Data"
+        android:layout_marginTop="@dimen/size_30px"
+        android:background="@android:color/holo_blue_light"
+        android:paddingTop="@dimen/size_60px" />
+
+    <Button
+        android:id="@+id/addBtn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_100px"
+        android:layout_alignParentBottom="true"
+        android:background="@color/c_5cacee"
+        android:text="@string/add"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/size_36px" />
+</RelativeLayout>

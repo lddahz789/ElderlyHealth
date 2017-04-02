@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/tool_bar" />
+
+    <EditText
+        android:id="@+id/content"
+        android:paddingTop="@dimen/size_10px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/size_30px"
+        android:layout_marginRight="@dimen/size_30px"
+        android:layout_marginTop="@dimen/size_30px"
+        android:background="@drawable/edit_bg"
+        android:gravity="left"
+        android:hint="@string/input_message"
+        android:minLines="5" />
+
+    <Button
+        android:id="@+id/send"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_100px"
+        android:layout_marginLeft="@dimen/size_30px"
+        android:layout_marginRight="@dimen/size_30px"
+        android:layout_marginTop="@dimen/size_60px"
+        android:background="@drawable/btn_bg"
+        android:text="@string/send_message"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/size_36px" />
+
+    <Button
+        android:id="@+id/call"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_100px"
+        android:layout_marginLeft="@dimen/size_30px"
+        android:layout_marginRight="@dimen/size_30px"
+        android:layout_marginTop="@dimen/size_60px"
+        android:background="@drawable/btn_bg"
+        android:text="@string/call_phone"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/size_36px" />
+</LinearLayout>

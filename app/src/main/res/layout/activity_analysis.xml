@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/tool_bar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_100px"
+                android:layout_marginTop="@dimen/size_10px">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textStyle="normal|bold"
+                    android:text="@string/category"
+                    android:textSize="@dimen/size_30px" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/intake"
+                    android:textStyle="normal|bold"
+                    android:textSize="@dimen/size_30px" />
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/standard_value"
+                    android:textStyle="normal|bold"
+                    android:textSize="@dimen/size_30px" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/c_cccccc" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_100px"
+                android:layout_marginTop="@dimen/size_10px">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/protein"
+                    android:textSize="@dimen/size_30px" />
+
+                <TextView
+                    android:id="@+id/totalProtein"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textSize="@dimen/size_30px" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="49-60(g)"
+                    android:textSize="@dimen/size_30px" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/c_cccccc" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_100px"
+                android:layout_marginTop="@dimen/size_10px">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/fat"
+                    android:textSize="@dimen/size_30px" />
+
+                <TextView
+                    android:id="@+id/totalFat"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textSize="@dimen/size_30px" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="55-65(g)"
+                    android:textSize="@dimen/size_30px" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/c_cccccc" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_100px"
+                android:layout_marginTop="@dimen/size_10px">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/carbohydrates"
+                    android:textSize="@dimen/size_30px" />
+
+                <TextView
+                    android:id="@+id/totalcarbohydrates"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textSize="@dimen/size_30px" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="250-300(g)"
+                    android:textSize="@dimen/size_30px" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/c_cccccc" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_100px"
+                android:layout_marginTop="@dimen/size_10px">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Calories"
+                    android:textSize="@dimen/size_30px" />
+
+                <TextView
+                    android:id="@+id/totalCalorie"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textSize="@dimen/size_30px" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="1600-2000(Kcal)"
+                    android:textSize="@dimen/size_30px" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/c_cccccc" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_100px"
+                android:layout_marginLeft="@dimen/size_30px"
+                android:layout_marginTop="@dimen/size_10px"
+                android:textStyle="normal|bold"
+                android:gravity="center_vertical"
+                android:text="@string/recommendFood" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/c_cccccc" />
+
+            <TextView
+                android:id="@+id/recommendProtein"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_30px"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/size_100px" />
+
+            <TextView
+                android:id="@+id/amountRecommendProtein"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_30px"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/size_60px" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/c_cccccc" />
+
+            <TextView
+                android:id="@+id/recommendFat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_30px"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/size_100px" />
+
+            <TextView
+                android:id="@+id/amountrecommendFat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_30px"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/size_60px" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/c_cccccc" />
+
+            <TextView
+                android:id="@+id/recommendCarbohydrates"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_30px"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/size_100px" />
+
+            <TextView
+                android:id="@+id/amountrecommendCarbohydrates"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/size_30px"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/size_60px" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/c_cccccc" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

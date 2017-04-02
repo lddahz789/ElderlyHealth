@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#29000000"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+<include layout="@layout/my_video_background" />
+
+<LinearLayout android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="#29000000"
+    android:paddingLeft="@dimen/size_30px"
+    android:paddingRight="@dimen/size_30px"
+    android:layout_height="match_parent"
+    >
+
+
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_marginTop="150dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Please enter your phone number"
+            android:background="@drawable/edit_bg"/>
+
+        <EditText
+            android:id="@+id/passWord"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Please enter your password"
+            android:background="@drawable/edit_bg"/>
+
+        <Button
+            android:id="@+id/login"
+            android:textColor="@android:color/white"
+            android:textSize="17sp"
+            android:text="Sign in"
+            android:background="@drawable/btn_bg"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+        <Button
+            android:id="@+id/register"
+            android:textColor="@android:color/white"
+            android:textSize="17sp"
+            android:text="Sign up"
+            android:background="@drawable/btn_bg"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp" />
+
+    </LinearLayout>
+</RelativeLayout>

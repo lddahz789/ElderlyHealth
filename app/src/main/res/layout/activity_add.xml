@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <include layout="@layout/tool_bar" />
+
+    <EditText
+        android:id="@+id/key"
+        android:layout_width="match_parent"
+        android:inputType="textCapWords"
+        android:hint="Food Name Here"
+        android:layout_height="@dimen/size_100px"
+        android:layout_marginLeft="@dimen/size_30px"
+        android:layout_marginRight="@dimen/size_30px"
+        android:layout_marginTop="@dimen/size_10px"
+        android:drawablePadding="100dp"
+        android:background="@drawable/edit_bg" />
+
+    <ListView
+        android:layout_marginTop="@dimen/size_30px"
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/no_data"
+        android:textSize="@dimen/size_36px" />
+</LinearLayout>

@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Elderly Health</string>
+    <string name="year">YY</string>
+    <string name="month">MM</string>
+    <string name="day">DD</string>
+    <string name="register">Registration</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="lunch">Lunch</string>
+    <string name="dinner">Dinner</string>
+    <string name="analysis">Nutrition Report</string>
+    <string name="alarm">Medicine Reminder</string>
+    <string name="help">Emergency</string>
+    <string name="input_alarm_hour">Enter Hour E.g. (0-24)</string>
+    <string name="input_alarm_minute">Enter Minites (0-60)</string>
+    <string name="input_alarm_message">Enter Medicine Information</string>
+    <string name="add_alarm">Add To Reminder</string>
+    <string name="input_complete_message">Please enter complete information</string>
+    <string name="username_passwd_error">Incorrect username or password</string>
+    <string name="send_message">Send Message</string>
+    <string name="call_phone">Make Phone Call</string>
+    <string name="input_message">Enter Reminder message</string>
+    <string name="add_food">Add Food</string>
+    <string name="amount">Amount</string>
+    <string name="no_data">no data</string>
+    <string name="add">Add</string>
+    <string name="add_success">Add successful</string>
+    <string name="carbohydrates">Carbohydrates</string>
+    <string name="fat"> Fat</string>
+    <string name="protein">Protein</string>
+    <string name="category">Category</string>
+    <string name="intake">Intake</string>
+    <string name="standard_value">Standard Value</string>
+    <string name="recommendFood">Recommendations</string>
+    <string name="map">Find Nearest</string>
+    <string name="edit2">Exercise</string>
+    <string name="mian">My Health</string>
+</resources>
