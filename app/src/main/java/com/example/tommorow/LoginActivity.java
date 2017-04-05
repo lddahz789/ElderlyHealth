@@ -86,6 +86,7 @@ public class LoginActivity extends Activity implements MediaPlayer.OnCompletionL
                             }
                             SharedPreferencesUtil.getInstance(this).putString(Const.USER_NAME, mName);
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            Toast.makeText(LoginActivity.this, "Login Successful!", Toast.LENGTH_LONG).show();
                             startActivity(intent);
                         }
                     }

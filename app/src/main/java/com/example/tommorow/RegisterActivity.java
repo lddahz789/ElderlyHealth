@@ -4,10 +4,13 @@ import android.os.Bundle;
 import android.text.InputFilter;
 import android.text.Spanned;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,6 +41,10 @@ public class RegisterActivity extends BaseActivity {
     EditText childName;
     @BindView(R.id.passWord)
     EditText passWord;
+    @BindView(R.id.weight)
+    EditText weight;
+    @BindView(R.id.radioGroup)
+    RadioGroup radioGroup;
     @BindView(R.id.year)
     WheelView year;
     @BindView(R.id.month)
@@ -48,7 +55,7 @@ public class RegisterActivity extends BaseActivity {
     LinearLayout ll;
     @BindView(R.id.register)
     Button register;
-    private String mName, mChildName, mPassWord, mBirthday;
+    private String mName, mChildName, mPassWord, mBirthday, mGender, mWeight;
     private List<User> userList;
     private int mYear = 1996;
     private int mMonth = 0;
@@ -82,7 +89,18 @@ public class RegisterActivity extends BaseActivity {
         setEditTextInhibitInputSpace(childName);
         setEditTextInhibitInputSpace(passWord);
         getDataPick();
-    }
+// get the gender information
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(RadioGroup arg0, int arg1) {
+                int radioButtonId = arg0.getCheckedRadioButtonId();
+                RadioButton rb = (RadioButton)RegisterActivity.this.findViewById(radioButtonId);
+                mGender = rb.getText().toString().toLowerCase();
+            }
+        });
+
+}
 
     private void getDataPick() {
         Calendar c = Calendar.getInstance();
@@ -114,8 +132,9 @@ public class RegisterActivity extends BaseActivity {
         mName = name.getText().toString().trim();
         mChildName = childName.getText().toString().trim();
         mPassWord = passWord.getText().toString().trim();
+        mWeight = weight.getText().toString().trim();
         mBirthday = year.getTextItem(year.getCurrentItem()) + "-" + String.valueOf(month.getCurrentItem() + 1) + "-" + String.valueOf(day.getCurrentItem() + 1);
-        if (TextUtils.isEmpty(StringUtils.c(mName)) || TextUtils.isEmpty(StringUtils.c(mChildName)) || TextUtils.isEmpty(StringUtils.c(mPassWord))) {
+        if (TextUtils.isEmpty(StringUtils.c(mName)) || TextUtils.isEmpty(StringUtils.c(mChildName)) || TextUtils.isEmpty(StringUtils.c(mPassWord)) || TextUtils.isEmpty(StringUtils.c(mWeight))) {
             Toast.makeText(RegisterActivity.this, "Please complete your information", Toast.LENGTH_LONG).show();
             return;
         } else {
@@ -131,8 +150,9 @@ public class RegisterActivity extends BaseActivity {
 
             }
             if (isNewUser) {
-                User newUser = new User(mName, mChildName, mPassWord, mBirthday);
+                User newUser = new User(mName, mChildName, mPassWord, mBirthday, mWeight, mGender);
                 userDBUtils.regist(newUser);
+                Toast.makeText(RegisterActivity.this, "Acount Created!", Toast.LENGTH_LONG).show();
                 finish();
             }
 

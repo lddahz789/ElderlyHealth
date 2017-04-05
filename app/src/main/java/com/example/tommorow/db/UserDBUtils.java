@@ -27,12 +27,12 @@ public class UserDBUtils {
     public void regist(User user) {
         SQLiteDatabase database = null;
         try {
-            String sql = "INSERT INTO user(name,childname,password,birthday) VALUES (?,?,?,?)";
+            String sql = "INSERT INTO user(name,childname,password,birthday,weight,gender) VALUES (?,?,?,?,?,?)";
             database = helper.getWritableDatabase();
             database.execSQL(
                     sql,
                     new Object[]{user.getName(), user.getChildName(),
-                            user.getPassWord(), user.getBirthday()});
+                            user.getPassWord(), user.getBirthday(), user.getWeight(), user.getGender()});
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -60,6 +60,8 @@ public class UserDBUtils {
                 u.setBirthday(cursor.getString(cursor
                         .getColumnIndex("birthday")));
                 u.setPassWord(cursor.getString(cursor.getColumnIndex("password")));
+                u.setWeight(cursor.getString(cursor.getColumnIndex("weight")));
+                u.setGender(cursor.getString(cursor.getColumnIndex("gender")));
                 users.add(u);
             }
         } catch (Exception e) {

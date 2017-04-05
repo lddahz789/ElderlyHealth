@@ -3,15 +3,15 @@
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    android:background="@color/c_5cacee">
+    android:background="@color/colorPrimary">
 
     <ImageView
         android:id="@+id/back"
-        android:layout_width="@dimen/size_60px"
-        android:layout_height="@dimen/size_60px"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="@dimen/size_30px"
-        android:background="@drawable/back" />
+    android:layout_width="@dimen/size_60px"
+    android:layout_height="@dimen/size_60px"
+    android:layout_centerVertical="true"
+    android:layout_marginLeft="@dimen/size_30px"
+    android:src="@drawable/back" />
 
     <TextView
         android:id="@+id/title"

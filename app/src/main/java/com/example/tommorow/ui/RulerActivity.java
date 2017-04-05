@@ -60,8 +60,8 @@ public class RulerActivity extends BaseActivity {
     }
     //初始化尺子的页面
     private void setListener() {
-        rulerView.setStartValue(50);
-        rulerView.setEndValue(250);
+        rulerView.setStartValue(20);
+        rulerView.setEndValue(1000);
         rulerView.setPartitionWidthInDP(40);
         rulerView.setPartitionValue(1);
         rulerView.setSmallPartitionCount(1);

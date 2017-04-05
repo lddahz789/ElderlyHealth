@@ -43,6 +43,35 @@
             android:background="@drawable/edit_bg"
             android:hint="Password" />
 
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:contentDescription="Gender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioMale"
+                android:text="Male"
+                android:checked="true"></RadioButton>
+            <RadioButton
+                android:layout_marginLeft="200dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioFemale"
+                android:text="Female"
+                ></RadioButton>
+        </RadioGroup>
+        <EditText
+            android:id="@+id/weight"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_bg"
+            android:hint="Weight without KG E.g 70" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

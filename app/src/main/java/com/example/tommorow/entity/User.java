@@ -9,6 +9,8 @@ public class User {
     private String childName;
     private String passWord;
     private String birthday;
+    private String weight;
+    private String gender;
 
     public String getName() {
         return name;
@@ -42,14 +44,29 @@ public class User {
         this.birthday = birthday;
     }
 
-    public User() {
+    public String getWeight() {
+        return weight;
     }
 
-    public User(String name, String childName, String passWord, String birthday) {
+    public void setWeight(String weight) {
+        this.weight = weight;
+    }
 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public  User() {}
+    public User(String name, String childName, String passWord, String birthday, String weight, String gender) {
         this.name = name;
         this.childName = childName;
         this.passWord = passWord;
         this.birthday = birthday;
+        this.weight = weight;
+        this.gender = gender;
     }
 }

@@ -22,7 +22,6 @@ import com.example.tommorow.utils.Utils;
  * TODO
  * 1. 配置属性添加到style.xml里面
  * 2. 设置start和end value可以为小数
- * Created by ScorpioNeal on 15/8/24.
  */
 public class RulerView extends View {
 

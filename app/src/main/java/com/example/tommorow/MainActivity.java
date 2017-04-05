@@ -1,8 +1,18 @@
 package com.example.tommorow;
 
+
+import android.graphics.BitmapFactory;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.BottomSheetBehavior;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
+import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -19,7 +29,7 @@ import butterknife.OnClick;
 /**
  * 主界面activity
  */
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     @BindView(R.id.breakfast)
     LinearLayout breakfast;
@@ -37,6 +47,8 @@ public class MainActivity extends BaseActivity {
     LinearLayout map;
     @BindView(R.id.exercise)
     LinearLayout exercise;
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
 
     @Override
     public int getContnetView() {
@@ -47,9 +59,45 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
-        backImageView.setVisibility(View.GONE);
+//        backImageView.setVisibility(View.GONE);
         title.setText(R.string.mian);
+        drawerLayout = (DrawerLayout) findViewById(R.id.left_drawer_layout);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+        backImageView.setImageResource(R.drawable.ic_menu_white);
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            // display menu button
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            // set menu icon
+            actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_white);
+        }
+
     }
+
+    @Override
+    public void onClick(View v) {
+        drawerLayout.openDrawer(Gravity.START);
+
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.nav_about:
+
+                Toast.makeText(this, "You press about!", Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                break;
+        }
+        drawerLayout.closeDrawers();
+        return true;
+    }
+
+
+
 
     @OnClick({R.id.breakfast, R.id.lunch, R.id.dinner, R.id.analysis, R.id.alarm, R.id.help, R.id.map, R.id.exercise})
     public void onViewClicked(View view) {

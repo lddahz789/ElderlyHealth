@@ -25,7 +25,9 @@ public class DBHelper extends SQLiteOpenHelper {
                 "name VARCHAR(50)," +
                 "childname VARCHAR(50)," +
                 "password VARCHAR(20)," +
-                "birthday VARCHAR(20))";
+                "birthday VARCHAR(20)," +
+                "weight VARCHAR(20)," +
+                "gender VARCHAR(20));";
         db.execSQL(sql);
     }
 
