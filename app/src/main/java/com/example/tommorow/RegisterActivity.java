@@ -34,7 +34,8 @@ import butterknife.OnClick;
  */
 
 public class RegisterActivity extends BaseActivity {
-
+    @BindView(R.id.fullName)
+    EditText fullName;
     @BindView(R.id.name)
     EditText name;
     @BindView(R.id.childName)
@@ -55,7 +56,7 @@ public class RegisterActivity extends BaseActivity {
     LinearLayout ll;
     @BindView(R.id.register)
     Button register;
-    private String mName, mChildName, mPassWord, mBirthday, mGender, mWeight;
+    private String mName, mChildName, mPassWord, mBirthday, mGender, mWeight, mFullName;
     private List<User> userList;
     private int mYear = 1996;
     private int mMonth = 0;
@@ -132,9 +133,10 @@ public class RegisterActivity extends BaseActivity {
         mName = name.getText().toString().trim();
         mChildName = childName.getText().toString().trim();
         mPassWord = passWord.getText().toString().trim();
+        mFullName = fullName.getText().toString().trim();
         mWeight = weight.getText().toString().trim();
         mBirthday = year.getTextItem(year.getCurrentItem()) + "-" + String.valueOf(month.getCurrentItem() + 1) + "-" + String.valueOf(day.getCurrentItem() + 1);
-        if (TextUtils.isEmpty(StringUtils.c(mName)) || TextUtils.isEmpty(StringUtils.c(mChildName)) || TextUtils.isEmpty(StringUtils.c(mPassWord)) || TextUtils.isEmpty(StringUtils.c(mWeight))) {
+        if (TextUtils.isEmpty(StringUtils.c(mName)) || TextUtils.isEmpty(StringUtils.c(mChildName)) || TextUtils.isEmpty(StringUtils.c(mPassWord)) || TextUtils.isEmpty(StringUtils.c(mFullName)) ||TextUtils.isEmpty(StringUtils.c(mWeight))) {
             Toast.makeText(RegisterActivity.this, "Please complete your information", Toast.LENGTH_LONG).show();
             return;
         } else {
@@ -143,16 +145,16 @@ public class RegisterActivity extends BaseActivity {
             userList = userDBUtils.queryAllUser();
             for (int i = 0; i < userList.size(); i++) {
                 if (userList.get(i).getName().equals(mName) || userList.get(i).getChildName().equals(mChildName)) {
-                    Toast.makeText(RegisterActivity.this, "Account already exsists，Please try agian", Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegisterActivity.this, "Account already exists，Please try again", Toast.LENGTH_LONG).show();
                     isNewUser = false;
                     return;
                 }
 
             }
             if (isNewUser) {
-                User newUser = new User(mName, mChildName, mPassWord, mBirthday, mWeight, mGender);
+                User newUser = new User(mName, mChildName, mPassWord, mBirthday, mWeight, mGender,mFullName);
                 userDBUtils.regist(newUser);
-                Toast.makeText(RegisterActivity.this, "Acount Created!", Toast.LENGTH_LONG).show();
+                Toast.makeText(RegisterActivity.this, "Account Created!", Toast.LENGTH_LONG).show();
                 finish();
             }
 

@@ -21,6 +21,7 @@ import com.example.tommorow.ui.AnalysisActivity;
 import com.example.tommorow.ui.GameActivity;
 import com.example.tommorow.ui.HelpActivity;
 import com.example.tommorow.ui.HistoryFoodListActivity;
+import com.example.tommorow.ui.MapActivity;
 import com.example.tommorow.ui.NutritionActivity;
 import com.example.tommorow.ui.SettingAlarmActivity;
 
@@ -93,8 +94,40 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     public boolean onNavigationItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-            case R.id.nav_about:
+            case R.id.nav_profile:
 
+                Toast.makeText(this, "You press profile!", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.nav_nutrition:
+                Intent nutritionIntent = new Intent(MainActivity.this, NutritionActivity.class);
+                startActivity(nutritionIntent);
+                break;
+
+            case R.id.nav_emergency:
+                Intent helpIntent = new Intent(MainActivity.this, HelpActivity.class);
+                startActivity(helpIntent);
+                break;
+
+            case R.id.nav_reminder:
+                Intent alarmIntent = new Intent(MainActivity.this, SettingAlarmActivity.class);
+                startActivity(alarmIntent);
+                break;
+
+            case R.id.nav_maps:
+                Intent mapIntent = new Intent(MainActivity.this, MapActivity.class);
+                startActivity(mapIntent);
+                break;
+
+            case R.id.nav_excercise:
+                Toast.makeText(MainActivity.this, "In Progress, will deliver in Iteration 3!", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.nav_game:
+                Toast.makeText(MainActivity.this, "In Progress, will deliver in Iteration 3!", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.nav_about:
                 Toast.makeText(this, "You press about!", Toast.LENGTH_SHORT).show();
                 break;
             default:
@@ -133,8 +166,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 //                    Toast.makeText(MainActivity.this, "In Progress!", Toast.LENGTH_SHORT).show();
                     break;
             case R.id.map:
-//                Intent mapIntent = new Intent(MainActivity.this, MapActivity.class);
-//                startActivity(mapIntent);
+                Intent mapIntent = new Intent(MainActivity.this, MapActivity.class);
+                startActivity(mapIntent);
                 break;
             case R.id.exercise:
 //            Intent exerciseIntent = new Intent(MainActivity.this, ExerciseActivity.class);

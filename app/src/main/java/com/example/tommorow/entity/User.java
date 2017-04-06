@@ -11,6 +11,7 @@ public class User {
     private String birthday;
     private String weight;
     private String gender;
+    private String fullName;
 
     public String getName() {
         return name;
@@ -60,13 +61,23 @@ public class User {
         this.gender = gender;
     }
 
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
     public  User() {}
-    public User(String name, String childName, String passWord, String birthday, String weight, String gender) {
+
+    public User(String name, String childName, String passWord, String birthday, String weight, String gender, String fullName) {
         this.name = name;
         this.childName = childName;
         this.passWord = passWord;
         this.birthday = birthday;
         this.weight = weight;
         this.gender = gender;
+        this.fullName = fullName;
     }
 }

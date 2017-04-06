@@ -19,6 +19,7 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".ui.GameActivity" />
         <activity android:name=".ui.NutritionActivity" />
+        <activity android:name=".ui.MapActivity" />
         <activity android:name=".ui.SettingAlarmActivity" />
         <activity android:name=".ui.HelpActivity" />
         <activity android:name=".ui.HistoryFoodListActivity" />

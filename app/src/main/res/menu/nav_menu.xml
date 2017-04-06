@@ -4,36 +4,48 @@
 
         <item
             android:id="@+id/nav_profile"
+            android:icon="@drawable/icon_side_profile"
             android:title="My profile" />
+
         <item
             android:id="@+id/nav_nutrition"
+            android:icon="@drawable/icon_side_nutrition"
             android:title="Nutrition" />
-
-
 
         <item
             android:id="@+id/nav_reminder"
+            android:icon="@drawable/icon_side_reminder"
             android:title="Reminder" />
 
         <item
             android:id="@+id/nav_emergency"
+            android:icon="@drawable/icon_side_emergency"
             android:title="Emergency" />
 
 
         <item
             android:id="@+id/nav_maps"
+            android:icon="@drawable/icon_side_nearby"
             android:title="Nearby" />
 
         <item
             android:id="@+id/nav_excercise"
-            android:title="Excercise" />
+            android:icon="@drawable/icon_side_exercise"
+            android:title="Exercise" />
 
         <item
             android:id="@+id/nav_game"
+            android:icon="@drawable/icon_side_game"
             android:title="Game" />
 
         <item
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/icon_side_settings"
+            android:title="Settings" />
+
+        <item
             android:id="@+id/nav_about"
+            android:icon="@drawable/icon_side_about"
             android:title="About" />
     </group>
 </menu>
