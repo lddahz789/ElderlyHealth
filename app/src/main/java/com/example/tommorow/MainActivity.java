@@ -18,8 +18,10 @@ import android.widget.Toast;
 
 import com.example.tommorow.Constant.Const;
 import com.example.tommorow.ui.AnalysisActivity;
+import com.example.tommorow.ui.GameActivity;
 import com.example.tommorow.ui.HelpActivity;
 import com.example.tommorow.ui.HistoryFoodListActivity;
+import com.example.tommorow.ui.NutritionActivity;
 import com.example.tommorow.ui.SettingAlarmActivity;
 
 import butterknife.BindView;
@@ -31,14 +33,10 @@ import butterknife.OnClick;
  */
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-    @BindView(R.id.breakfast)
-    LinearLayout breakfast;
-    @BindView(R.id.lunch)
-    LinearLayout lunch;
-    @BindView(R.id.dinner)
-    LinearLayout dinner;
-    @BindView(R.id.analysis)
-    LinearLayout analysis;
+    @BindView(R.id.nutrition)
+    LinearLayout nutrition;
+    @BindView(R.id.game)
+    LinearLayout game;
     @BindView(R.id.alarm)
     LinearLayout alarm;
     @BindView(R.id.help)
@@ -81,6 +79,16 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
     }
 
+    //close side menu when pressed back button
+    @Override
+    public void onBackPressed(){
+        if(drawerLayout.isDrawerOpen(navigationView)){
+            drawerLayout.closeDrawers();
+        }else {
+            super.onBackPressed();
+        }
+    }
+
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
 
@@ -99,49 +107,39 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
 
 
-    @OnClick({R.id.breakfast, R.id.lunch, R.id.dinner, R.id.analysis, R.id.alarm, R.id.help, R.id.map, R.id.exercise})
+    @OnClick({R.id.nutrition,R.id.game, R.id.alarm, R.id.help, R.id.map, R.id.exercise})
     public void onViewClicked(View view) {
         switch (view.getId()) {
-            case R.id.breakfast:
-                Intent breakfastIntent = new Intent(MainActivity.this, HistoryFoodListActivity.class);
-                breakfastIntent.putExtra(Const.TYPE, 1);
-                startActivity(breakfastIntent);
-                break;
-            case R.id.lunch:
-                Intent lunchIntent = new Intent(MainActivity.this, HistoryFoodListActivity.class);
-                lunchIntent.putExtra(Const.TYPE, 2);
-                startActivity(lunchIntent);
-                break;
-            case R.id.dinner:
-                Intent dinnerIntent = new Intent(MainActivity.this, HistoryFoodListActivity.class);
-                dinnerIntent.putExtra(Const.TYPE, 3);
-                startActivity(dinnerIntent);
-                break;
-            case R.id.analysis:
-                Intent analysisIntent = new Intent(MainActivity.this, AnalysisActivity.class);
-                startActivity(analysisIntent);
+
+            case R.id.nutrition:
+                Intent nutritionIntent = new Intent(MainActivity.this, NutritionActivity.class);
+                startActivity(nutritionIntent);
                 break;
 
-            //Iteration 1 暂时不做这些
+            case R.id.game:
+//                Intent gameIntent = new Intent(MainActivity.this, GameActivity.class);
+//                startActivity(gameIntent);
+                Toast.makeText(MainActivity.this, "In Progress, will deliver in Iteration 3!", Toast.LENGTH_SHORT).show();
+                break;
+
             case R.id.alarm:
-//                Intent alarmIntent = new Intent(MainActivity.this, SettingAlarmActivity.class);
-//                startActivity(alarmIntent);
-                Toast.makeText(MainActivity.this, "In Progress!", Toast.LENGTH_SHORT).show();
+                Intent alarmIntent = new Intent(MainActivity.this, SettingAlarmActivity.class);
+                startActivity(alarmIntent);
+//                Toast.makeText(MainActivity.this, "In Progress!", Toast.LENGTH_SHORT).show();
                 break;
                 case R.id.help:
-//                Intent helpIntent = new Intent(MainActivity.this, HelpActivity.class);
-//                startActivity(helpIntent);
-                    Toast.makeText(MainActivity.this, "In Progress!", Toast.LENGTH_SHORT).show();
+                Intent helpIntent = new Intent(MainActivity.this, HelpActivity.class);
+                startActivity(helpIntent);
+//                    Toast.makeText(MainActivity.this, "In Progress!", Toast.LENGTH_SHORT).show();
                     break;
             case R.id.map:
 //                Intent mapIntent = new Intent(MainActivity.this, MapActivity.class);
 //                startActivity(mapIntent);
-                Toast.makeText(MainActivity.this, "In Progress!", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.exercise:
 //            Intent exerciseIntent = new Intent(MainActivity.this, ExerciseActivity.class);
 //            startActivity(exerciseIntent);
-                Toast.makeText(MainActivity.this, "In Progress!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "In Progress, will deliver in Iteration 3!", Toast.LENGTH_SHORT).show();
             break;
         }
     }

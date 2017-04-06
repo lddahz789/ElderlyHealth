@@ -32,6 +32,8 @@
     <string name="standard_value">Standard Value</string>
     <string name="recommendFood">Recommendations</string>
     <string name="map">Find Nearest</string>
-    <string name="edit2">Exercise</string>
+    <string name="exericise">Exercise</string>
     <string name="mian">My Health</string>
+    <string name="nutrition">My Nutrition</string>
+    <string name="game">Game</string>
 </resources>

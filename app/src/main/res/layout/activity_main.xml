@@ -15,7 +15,6 @@
     <include layout="@layout/tool_bar" />
 
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -23,7 +22,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:id="@+id/breakfast"
+            android:id="@+id/nutrition"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -31,21 +30,22 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_marginTop="@dimen/size_30px"
-                android:src="@drawable/icon_daily_breakfast" />
+                android:src="@drawable/icon_nutrition" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/size_30px"
-                android:text="@string/breakfast"
+                android:text="@string/nutrition"
                 android:textSize="@dimen/size_36px" />
         </LinearLayout>
 
+
         <LinearLayout
-            android:id="@+id/lunch"
+            android:id="@+id/map"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -53,16 +53,17 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:id="@+id/imageView1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_marginTop="@dimen/size_30px"
-                android:src="@drawable/icon_daily_lunch" />
+                android:src="@drawable/map" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/size_30px"
-                android:text="@string/lunch"
+                android:text="@string/map"
                 android:textSize="@dimen/size_36px" />
         </LinearLayout>
     </LinearLayout>
@@ -73,8 +74,9 @@
         android:layout_weight="1"
         android:orientation="horizontal">
 
+
         <LinearLayout
-            android:id="@+id/dinner"
+            android:id="@+id/exercise"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -82,68 +84,16 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_marginTop="@dimen/size_30px"
-                android:src="@drawable/icon_daily_dinner" />
+                android:src="@drawable/icon_exericise" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/size_30px"
-                android:text="@string/dinner"
-                android:textSize="@dimen/size_36px" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/analysis"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginTop="@dimen/size_30px"
-                android:src="@drawable/analysis" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/size_30px"
-                android:text="@string/analysis"
-                android:textSize="@dimen/size_36px" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:id="@+id/alarm"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_marginTop="@dimen/size_30px"
-                android:src="@drawable/alarm_new" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/size_30px"
-                android:text="@string/alarm"
+                android:text="@string/exericise"
                 android:textSize="@dimen/size_36px" />
         </LinearLayout>
 
@@ -156,8 +106,8 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_marginTop="@dimen/size_30px"
                 android:src="@drawable/help_new" />
 
@@ -177,7 +127,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:id="@+id/map"
+            android:id="@+id/game"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -185,22 +135,21 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/imageView1"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_marginTop="@dimen/size_30px"
-                android:src="@drawable/map" />
+                android:src="@drawable/icon_game" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/size_30px"
-                android:text="@string/map"
+                android:text="@string/game"
                 android:textSize="@dimen/size_36px" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/exercise"
+            android:id="@+id/alarm"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -208,22 +157,23 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
+                android:id="@+id/imageView"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_marginTop="@dimen/size_30px"
-                android:src="@drawable/edit" />
+                android:src="@drawable/alarm_new" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/size_30px"
-                android:text="@string/edit2"
+                android:text="@string/alarm"
                 android:textSize="@dimen/size_36px" />
         </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>
-A
+
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"

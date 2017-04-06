@@ -3,16 +3,37 @@
     <group android:checkableBehavior="single">
 
         <item
+            android:id="@+id/nav_profile"
+            android:title="My profile" />
+        <item
             android:id="@+id/nav_nutrition"
             android:title="Nutrition" />
+
+
+
+        <item
+            android:id="@+id/nav_reminder"
+            android:title="Reminder" />
+
+        <item
+            android:id="@+id/nav_emergency"
+            android:title="Emergency" />
+
+
+        <item
+            android:id="@+id/nav_maps"
+            android:title="Nearby" />
+
+        <item
+            android:id="@+id/nav_excercise"
+            android:title="Excercise" />
+
+        <item
+            android:id="@+id/nav_game"
+            android:title="Game" />
 
         <item
             android:id="@+id/nav_about"
             android:title="About" />
-
-        <item
-            android:id="@+id/nav_maps"
-            android:title="Maps" />
-
     </group>
 </menu>
