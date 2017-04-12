@@ -76,6 +76,7 @@
                     android:textSize="@dimen/size_30px" />
 
                 <TextView
+                    android:id="@+id/standardProtein"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -111,6 +112,7 @@
                     android:textSize="@dimen/size_30px" />
 
                 <TextView
+                    android:id="@+id/standardFat"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -146,6 +148,7 @@
                     android:textSize="@dimen/size_30px" />
 
                 <TextView
+                    android:id="@+id/standarCarbon"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -181,6 +184,7 @@
                     android:textSize="@dimen/size_30px" />
 
                 <TextView
+                    android:id="@+id/standardCalorie"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"

@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.text.InputFilter;
 import android.text.Spanned;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -85,6 +84,11 @@ public class LoginActivity extends Activity implements MediaPlayer.OnCompletionL
                                 SharedPreferencesUtil.getInstance(this).putString(Const.PHONE_NUMBER, userList.get(i).getChildName());
                             }
                             SharedPreferencesUtil.getInstance(this).putString(Const.USER_NAME, mName);
+                            //send weight and birthday & full name parameters to main activity
+                            SharedPreferencesUtil.getInstance(this).putString(Const.BIRTH, userList.get(i).getBirthday());
+                            SharedPreferencesUtil.getInstance(this).putString(Const.WEIGHT, userList.get(i).getWeight());
+                            SharedPreferencesUtil.getInstance(this).putString(Const.FULLNAME, userList.get(i).getFullName());
+                            SharedPreferencesUtil.getInstance(this).putString(Const.GENDER, userList.get(i).getGender());
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             Toast.makeText(LoginActivity.this, "Login Successful!", Toast.LENGTH_LONG).show();
                             startActivity(intent);

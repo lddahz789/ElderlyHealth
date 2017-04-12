@@ -5,14 +5,19 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.example.tommorow.BaseActivity;
+import com.example.tommorow.Constant.Const;
 import com.example.tommorow.R;
-import com.example.tommorow.entity.FoodModel;
 import com.example.tommorow.entity.RecommendFood;
 import com.example.tommorow.utils.IntakeDataUtils;
 import com.example.tommorow.utils.RecommendFoodUtils;
+import com.example.tommorow.utils.SharedPreferencesUtil;
 
 import java.text.DecimalFormat;
+import java.text.Format;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -44,6 +49,15 @@ public class AnalysisActivity extends BaseActivity {
     TextView amountrecommendCarbohydrates;
     @BindView(R.id.totalCalorie)
     TextView totalCalorie;
+    @BindView(R.id.standardProtein)
+    TextView standardProtein;
+    @BindView(R.id.standardFat)
+    TextView standardFat;
+    @BindView(R.id.standarCarbon)
+    TextView standardCarbon;
+    @BindView(R.id.standardCalorie)
+    TextView standardCalorie;
+
     private double[] data;
 
     @Override
@@ -58,32 +72,106 @@ public class AnalysisActivity extends BaseActivity {
         title.setText(getResources().getString(R.string.analysis));
         initData();
     }
-        //初始化数据
+
+    //初始化数据
     private void initData() {
+
         data = IntakeDataUtils.getInstance(this).calculation();
         totalFat.setText(changeDouble(data[0]) + "(g)");
         totalProtein.setText(changeDouble(data[1]) + "(g)");
         totalcarbohydrates.setText(changeDouble(data[2]) + "(g)");
-        totalCalorie.setText(changeDouble((data[0]*9) + (data[1] * 4) + ((data[2] * 4))) + "(Kcal)");
+        totalCalorie.setText(changeDouble((data[0] * 9) + (data[1] * 4) + ((data[2] * 4))) + "(Kcal)");
+
         initRecommendFood();
     }
 
 
-//double数据保留一位小数
+    //double数据保留一位小数
     public double changeDouble(Double dou) {
         NumberFormat nf = new DecimalFormat("0.0 ");
         dou = Double.parseDouble(nf.format(dou));
         return dou;
     }
+
     //随机选择推荐食物
     private void initRecommendFood() {
-        double fat = 49 - changeDouble(data[0]);
-        double protein = 55 - changeDouble(data[1]);
-        double carbohydrates = 250 - changeDouble(data[2]);
+        Double calorie = 30 * getWeight();
+        Double sCarbon = calorie*0.55/4;
+        Double sProtein = 60.0;
+        Double sFat = calorie*0.28/9;
+
+        standardProtein.setText("60(g)");
+        standardCalorie.setText(changeDouble(calorie)+ "(Kcal)");
+        standardCarbon.setText(changeDouble(calorie*0.55/4) + "(g)");
+        standardFat.setText(changeDouble(calorie*0.28/9) + "(g)");
+//        Toast.makeText(this, "tishi" + getDoubleAge() + "," + getWeight(), Toast.LENGTH_SHORT).show();
+        double fat = sFat - changeDouble(data[0]);
+        double protein = 60 - changeDouble(data[1]);
+        double carbohydrates = sCarbon - changeDouble(data[2]);
         getRecommendCarbohydrates(carbohydrates);
         getRecommendFat(fat);
         getRecommendProtein(protein);
     }
+
+    public Double getDoubleAge()
+    {
+        String strAge = String.valueOf(getAge());
+        Double doubleAge = Double.parseDouble(strAge);
+        return doubleAge;
+    }
+
+    public Double getWeight()
+    {
+        Double doubleWeight = 80.0;
+        try {
+            String strWeight = SharedPreferencesUtil.getInstance(this).getString(Const.WEIGHT);
+            doubleWeight = Double.parseDouble(strWeight);
+        } catch (Exception e) {
+
+        }
+        return doubleWeight;
+}
+
+
+    //To calculate age of user
+    public int getAge() {
+        Format f = new SimpleDateFormat("yyyy-MM-dd");
+        Date birthDay=null;
+        try {
+            birthDay= (Date) f.parseObject(SharedPreferencesUtil.getInstance(this).getString(Const.BIRTH));
+        } catch (Exception e) {
+
+        }
+
+        Calendar cal = Calendar.getInstance();
+
+        if (cal.before(birthDay)) {
+            throw new IllegalArgumentException(
+                    "The birthDay is before Now.It's unbelievable!");
+        }
+        int yearNow = cal.get(Calendar.YEAR);
+        int monthNow = cal.get(Calendar.MONTH);
+        int dayOfMonthNow = cal.get(Calendar.DAY_OF_MONTH);
+        cal.setTime(birthDay);
+
+        int yearBirth = cal.get(Calendar.YEAR);
+        int monthBirth = cal.get(Calendar.MONTH);
+        int dayOfMonthBirth = cal.get(Calendar.DAY_OF_MONTH);
+
+        int age = yearNow - yearBirth;
+
+        if (monthNow <= monthBirth) {
+            if (monthNow == monthBirth) {
+                if (dayOfMonthNow < dayOfMonthBirth)
+                    age--;
+            } else {
+                age--;
+            }
+        }
+        return age;
+    }
+
+
 
     private void getRecommendFat(double fat) {
         int status = -1;

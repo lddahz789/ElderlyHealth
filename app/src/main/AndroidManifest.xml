@@ -1,39 +1,37 @@
-<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.tommorow">
+<?xml version="1.0" encoding="utf-8"?><manifest xmlns:android="http://schemas.android.com/apk/res/android"
+package="com.example.tommorow">
 
-    <application
-        android:allowBackup="true"
-        android:icon="@drawable/icon"
-        android:label="@string/app_name"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+<application android:allowBackup="true" android:icon="@drawable/icon" android:label="@string/app_name"
+    android:supportsRtl="true" android:theme="@style/AppTheme">
+    <activity android:name=".LoginActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".ui.GameActivity" />
-        <activity android:name=".ui.NutritionActivity" />
-        <activity android:name=".ui.MapActivity" />
-        <activity android:name=".ui.SettingAlarmActivity" />
-        <activity android:name=".ui.HelpActivity" />
-        <activity android:name=".ui.HistoryFoodListActivity" />
-        <activity android:name=".ui.AddFoodActivity"/>
-        <activity android:name=".ui.RulerActivity"/>
-        <activity android:name=".ui.AnalysisActivity"/>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+    <activity android:name=".RegisterActivity" />
+    <activity android:name=".MainActivity" />
+    <activity android:name=".ui.GameActivity" />
+    <activity android:name=".ui.NutritionActivity" />
+    <activity android:name=".ui.SettingActivity" />
+    <activity android:name=".ui.MapsActivity" />
+    <activity android:name=".ui.SettingAlarmActivity" />
+    <activity android:name=".ui.HelpActivity" />
+    <activity android:name=".ui.HistoryFoodListActivity" />
+    <activity android:name=".ui.AddFoodActivity" />
+    <activity android:name=".ui.RulerActivity" />
+    <activity android:name=".ui.AnalysisActivity" />
 
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDLBkjLfVlrc4kLlY9cTSaBptDaPEJlUHo"/>
+    <meta-data android:name="com.google.android.geo.API_KEY"
+        android:value="AIzaSyDLBkjLfVlrc4kLlY9cTSaBptDaPEJlUHo" />
 
-    </application>
+</application>
 
-    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
-    <uses-permission android:name="android.permission.SEND_SMS" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
+<uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+<uses-permission android:name="android.permission.SEND_SMS" />
+<uses-permission android:name="android.permission.CALL_PHONE" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+<uses-permission android:name="android.permission.INTERNET" />
 </manifest>

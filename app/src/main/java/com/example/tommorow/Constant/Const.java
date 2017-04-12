@@ -13,5 +13,8 @@ public class Const {
     public static final String LUNCK = "lunch";
     public static final String DINNER = "dinner";
     public  static final String ITEM_DATA="item_data";
-
+    public static  final String BIRTH="birth";
+    public static  final String WEIGHT="weight";
+    public static  final String  FULLNAME="full_name";
+    public static final String GENDER="gender";
 }

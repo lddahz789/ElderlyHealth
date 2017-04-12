@@ -34,6 +34,8 @@
     <string name="map">Find Nearest</string>
     <string name="exericise">Exercise</string>
     <string name="mian">My Health</string>
-    <string name="nutrition">My Nutrition</string>
+    <string name="nutrition">Nutrition</string>
     <string name="game">Game</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="setting">Setting</string>
 </resources>

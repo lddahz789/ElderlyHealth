@@ -1,29 +1,25 @@
 package com.example.tommorow;
 
 
-import android.graphics.BitmapFactory;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tommorow.Constant.Const;
-import com.example.tommorow.ui.AnalysisActivity;
-import com.example.tommorow.ui.GameActivity;
 import com.example.tommorow.ui.HelpActivity;
 import com.example.tommorow.ui.HistoryFoodListActivity;
-import com.example.tommorow.ui.MapActivity;
+import com.example.tommorow.ui.MapsActivity;
 import com.example.tommorow.ui.NutritionActivity;
+import com.example.tommorow.ui.SettingActivity;
 import com.example.tommorow.ui.SettingAlarmActivity;
+import com.example.tommorow.utils.SharedPreferencesUtil;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -46,6 +42,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     LinearLayout map;
     @BindView(R.id.exercise)
     LinearLayout exercise;
+
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
 
@@ -64,20 +61,22 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         backImageView.setImageResource(R.drawable.ic_menu_white);
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            // display menu button
-            actionBar.setDisplayHomeAsUpEnabled(true);
-            // set menu icon
-            actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_white);
-        }
+//        ActionBar actionBar = getSupportActionBar();
+//        if (actionBar != null) {
+//            // display menu button
+//            actionBar.setDisplayHomeAsUpEnabled(true);
+//            // set menu icon
+//            actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_white);
+//        }
 
     }
 
     @Override
     public void onClick(View v) {
-        drawerLayout.openDrawer(Gravity.START);
 
+        drawerLayout.openDrawer(Gravity.START);
+        TextView fullNameOnSideA =(TextView) findViewById(R.id.fullNameOnSide);
+        fullNameOnSideA.setText(SharedPreferencesUtil.getInstance(this).getString(Const.FULLNAME));
     }
 
     //close side menu when pressed back button
@@ -115,7 +114,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 break;
 
             case R.id.nav_maps:
-                Intent mapIntent = new Intent(MainActivity.this, MapActivity.class);
+                Intent mapIntent = new Intent(MainActivity.this, MapsActivity.class);
                 startActivity(mapIntent);
                 break;
 
@@ -125,6 +124,10 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
             case R.id.nav_game:
                 Toast.makeText(MainActivity.this, "In Progress, will deliver in Iteration 3!", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_setting:
+                Intent settingIntent = new Intent(MainActivity.this, SettingActivity.class);
+                startActivity(settingIntent);
                 break;
 
             case R.id.nav_about:
@@ -166,7 +169,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 //                    Toast.makeText(MainActivity.this, "In Progress!", Toast.LENGTH_SHORT).show();
                     break;
             case R.id.map:
-                Intent mapIntent = new Intent(MainActivity.this, MapActivity.class);
+                Intent mapIntent = new Intent(MainActivity.this, MapsActivity.class);
                 startActivity(mapIntent);
                 break;
             case R.id.exercise:

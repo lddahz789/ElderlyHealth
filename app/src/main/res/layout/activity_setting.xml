@@ -5,9 +5,5 @@
 
     <include layout="@layout/tool_bar" />
 
-    <WebView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/webView"
-        />
+
 </LinearLayout>
