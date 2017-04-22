@@ -16,7 +16,8 @@ package="com.example.tommorow">
     <activity android:name=".ui.NutritionActivity" />
     <activity android:name=".ui.SettingActivity" />
     <activity android:name=".ui.MapsActivity" />
-    <activity android:name=".ui.SettingAlarmActivity" />
+    <activity android:name=".ui.PersonalProfile" />
+    <activity android:name=".ui.SettingAlarmActivity" android:windowSoftInputMode="stateHidden"/>
     <activity android:name=".ui.HelpActivity" />
     <activity android:name=".ui.HistoryFoodListActivity" />
     <activity android:name=".ui.AddFoodActivity" />

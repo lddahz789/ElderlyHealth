@@ -15,7 +15,9 @@
     android:paddingLeft="@dimen/size_30px"
     android:paddingRight="@dimen/size_30px"
     android:layout_height="match_parent"
-    >
+    android:layout_alignParentTop="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true">
 
 
 
@@ -32,7 +34,8 @@
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="Please enter your password"
+            android:inputType="textPassword"
+            android:hint="password"
             android:background="@drawable/edit_bg"/>
 
         <Button

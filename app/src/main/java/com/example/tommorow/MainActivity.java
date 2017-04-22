@@ -1,6 +1,8 @@
 package com.example.tommorow;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -17,6 +19,7 @@ import com.example.tommorow.ui.HelpActivity;
 import com.example.tommorow.ui.HistoryFoodListActivity;
 import com.example.tommorow.ui.MapsActivity;
 import com.example.tommorow.ui.NutritionActivity;
+import com.example.tommorow.ui.PersonalProfile;
 import com.example.tommorow.ui.SettingActivity;
 import com.example.tommorow.ui.SettingAlarmActivity;
 import com.example.tommorow.utils.SharedPreferencesUtil;
@@ -61,14 +64,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         backImageView.setImageResource(R.drawable.ic_menu_white);
-//        ActionBar actionBar = getSupportActionBar();
-//        if (actionBar != null) {
-//            // display menu button
-//            actionBar.setDisplayHomeAsUpEnabled(true);
-//            // set menu icon
-//            actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_white);
-//        }
 
+        welcomeWindow("Welcome to Elderly Health!" + "\n" + "Mr." + SharedPreferencesUtil.getInstance(this).getString(Const.FULLNAME) + "\n" + "Today is good weather to hang out~");
     }
 
     @Override
@@ -95,7 +92,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         switch (item.getItemId()) {
             case R.id.nav_profile:
 
-                Toast.makeText(this, "You press profile!", Toast.LENGTH_SHORT).show();
+                Intent profileIntent = new Intent(MainActivity.this, PersonalProfile.class);
+                startActivity(profileIntent);
                 break;
 
             case R.id.nav_nutrition:
@@ -140,6 +138,19 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         return true;
     }
 
+    public void welcomeWindow(String str){
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
+        builder1.setTitle("Welcome!");
+        builder1.setMessage(str);
+        builder1 .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog alert11 = builder1.create();
+        alert11.show();
+    }
 
 
 

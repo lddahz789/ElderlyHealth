@@ -25,14 +25,7 @@
             android:hint="Full Name E.g. Jack Smith"
             android:inputType= "textPersonName"/>
 
-        <EditText
-            android:id="@+id/name"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/edit_bg"
-            android:hint="Main Phone Number"
-            android:inputType="number" />
+
 
         <EditText
             android:id="@+id/childName"
@@ -40,7 +33,7 @@
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/edit_bg"
-            android:hint="Child Account Phone number"
+            android:hint="Your Phone number"
             android:inputType="number" />
 
 
@@ -80,6 +73,15 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/edit_bg"
             android:hint="Weight without KG E.g 70" />
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_bg"
+            android:hint="Relative Phone Number(Emergency Call)"
+            android:inputType="number" />
 
         <LinearLayout
             android:layout_width="match_parent"

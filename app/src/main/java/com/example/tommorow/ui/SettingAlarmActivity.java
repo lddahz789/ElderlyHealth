@@ -1,5 +1,7 @@
 package com.example.tommorow.ui;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.AlarmClock;
@@ -8,7 +10,7 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.TimePicker;
 
 import com.example.tommorow.BaseActivity;
 import com.example.tommorow.R;
@@ -17,21 +19,24 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+
 /**
  * 闹钟的页面
  */
 
 public class SettingAlarmActivity extends BaseActivity {
-    @BindView(R.id.hour)
-    EditText hour;
-    @BindView(R.id.minute)
-    EditText minute;
-    @BindView(R.id.message)
-    EditText message;
+
+    @BindView(R.id.medicine_name)
+    EditText medicine_name;
+    @BindView(R.id.medicine_amount)
+    EditText medicine_amount;
     @BindView(R.id.set)
     Button set;
 
-    private String mHour, mMinute, mMessage;
+    private int hour;
+    private int minutes;
+
+    private String mName,mAmount,mMessage,mHint;
 
 
     @Override
@@ -43,27 +48,76 @@ public class SettingAlarmActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
-        setEditTextInhibitInputSpace(hour);
-        setEditTextInhibitInputSpace(minute);
-        setEditTextInhibitInputSpace(message);
+        //set up title
         title.setText(getResources().getString(R.string.alarm));
+        setEditTextInhibitInputSpace(medicine_name);
+        setEditTextInhibitInputSpace(medicine_amount);
+        TimePicker simpleTimePicker = (TimePicker)findViewById(R.id.simpleTimePicker); // initiate a time picker
+        // set up time picker listener
+        simpleTimePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
+            @Override
+            public void onTimeChanged(TimePicker view, int hourOfDay, int minute) {
+
+                hour = hourOfDay;
+                minutes = minute;
+            }
+        });
     }
 
     @OnClick(R.id.set)
     public void onViewClicked() {
-        mHour = hour.getText().toString();
-        mMinute = minute.getText().toString();
-        mMessage = message.getText().toString();
-        if (TextUtils.isEmpty(mMinute) || TextUtils.isEmpty(mHour) || TextUtils.isEmpty(mMessage)) {
-            Toast.makeText(SettingAlarmActivity.this, getString(R.string.input_complete_message), Toast.LENGTH_LONG).show();
+        mName = medicine_name.getText().toString();
+        mAmount = medicine_amount.getText().toString();
+
+        if (TextUtils.isEmpty(mName) || TextUtils.isEmpty(mAmount)) {
+            alertWindow(getString(R.string.input_complete_message));
             return;
         }
-        Intent intent = new Intent(AlarmClock.ACTION_SET_ALARM);
-        intent.putExtra(AlarmClock.EXTRA_MESSAGE, mMessage);
-        intent.putExtra(AlarmClock.EXTRA_HOUR, Integer.parseInt(mHour));
-        intent.putExtra(AlarmClock.EXTRA_MINUTES, Integer.parseInt(mMinute));
-        startActivity(intent);
+        mMessage = "Reminder! Don't forget to take ****" + mName + "****" + mAmount + "****";
+        mHint = "Here are the information you enter:" + "\n" +
+                "Name: " + mName + "\n" +
+                "Amount: " + mAmount + "\n" +
+                "Time: " + hour + ":" + minutes;
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(SettingAlarmActivity.this);
+        builder1.setTitle("Confirmation!");
+        builder1.setMessage(mHint);
+        builder1 .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                Intent intent = new Intent(AlarmClock.ACTION_SET_ALARM);
+                intent.putExtra(AlarmClock.EXTRA_MESSAGE, mMessage);
+                intent.putExtra(AlarmClock.EXTRA_HOUR, hour);
+                intent.putExtra(AlarmClock.EXTRA_MINUTES, minutes);
+                startActivity(intent);
+            }
+        });
+        builder1.setNegativeButton(
+                "Cancel",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert11 = builder1.create();
+        alert11.show();
+
     }
+
+    public void alertWindow(String str){
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(SettingAlarmActivity.this);
+        builder1.setTitle("Warning");
+        builder1.setMessage(str);
+        builder1 .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert11 = builder1.create();
+        alert11.show();
+    }
+
 
     public void setEditTextInhibitInputSpace(EditText editText) {
         InputFilter filter = new InputFilter() {

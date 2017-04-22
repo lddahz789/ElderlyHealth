@@ -4,15 +4,11 @@ import android.os.Bundle;
 import android.text.InputFilter;
 import android.text.Spanned;
 import android.text.TextUtils;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.tommorow.db.UserDBUtils;
@@ -91,6 +87,10 @@ public class RegisterActivity extends BaseActivity {
         setEditTextInhibitInputSpace(passWord);
         getDataPick();
 // get the gender information
+        int radioButtonId = radioGroup.getCheckedRadioButtonId();
+        RadioButton rb = (RadioButton)RegisterActivity.this.findViewById(radioButtonId);
+        mGender = rb.getText().toString().toLowerCase();
+
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
             @Override
@@ -135,6 +135,7 @@ public class RegisterActivity extends BaseActivity {
         mPassWord = passWord.getText().toString().trim();
         mFullName = fullName.getText().toString().trim();
         mWeight = weight.getText().toString().trim();
+
         mBirthday = year.getTextItem(year.getCurrentItem()) + "-" + String.valueOf(month.getCurrentItem() + 1) + "-" + String.valueOf(day.getCurrentItem() + 1);
         if (TextUtils.isEmpty(StringUtils.c(mName)) || TextUtils.isEmpty(StringUtils.c(mChildName)) || TextUtils.isEmpty(StringUtils.c(mPassWord)) || TextUtils.isEmpty(StringUtils.c(mFullName)) ||TextUtils.isEmpty(StringUtils.c(mWeight))) {
             Toast.makeText(RegisterActivity.this, "Please complete your information", Toast.LENGTH_LONG).show();
