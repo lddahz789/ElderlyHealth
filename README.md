@@ -25,3 +25,4 @@ version 2.1 Itertaion2 final version 2017/04/22
 4. Registration function optimized;
 5. Medicine Reminder optimization;
 6. About searching problems: Actually i am using "contains" method in application,but it only wokrs when you type the category first. The reason why i do this is that we have tremendous data in our database, if you are only using "contains" medhod then you have to type nearly whole food name to search it.
+![image](https://github.com/lddahz789/ElderlyHealth/blob/master/Searching.jpg)
