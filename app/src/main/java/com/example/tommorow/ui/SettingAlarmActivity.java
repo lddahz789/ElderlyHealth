@@ -73,7 +73,7 @@ public class SettingAlarmActivity extends BaseActivity {
             alertWindow(getString(R.string.input_complete_message));
             return;
         }
-        mMessage = "Reminder! Don't forget to take ****" + mName + "****" + mAmount + "****";
+        mMessage = "Reminder! Don't forget to take " + mAmount + " " +  mName;
         mHint = "Here are the information you enter:" + "\n" +
                 "Name: " + mName + "\n" +
                 "Amount: " + mAmount + "\n" +

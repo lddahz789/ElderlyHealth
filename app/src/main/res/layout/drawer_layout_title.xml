@@ -8,7 +8,7 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/circle_image"
-        android:src="@drawable/head"
+        android:src="@drawable/male"
         android:layout_width="80dp"
         android:layout_height="80dp" />
     <TextView

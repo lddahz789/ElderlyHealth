@@ -174,7 +174,7 @@ public class RulerView extends View {
         mIndicatorTextTopMargin = Utils.convertDpToPixel(mContext, 15f);
 
         mSmallPartitionCount = 3;
-        mOriginValue = 100;
+        mOriginValue = 50;
         mOriginValueSmall = 0;
         mPartitionValue = 10;
         mStartValue = 50;

@@ -12,15 +12,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.tommorow.Constant.Const;
+import com.example.tommorow.ui.AboutActivity;
+import com.example.tommorow.ui.ExerciseActivity;
+import com.example.tommorow.ui.GameActivity;
 import com.example.tommorow.ui.HelpActivity;
 import com.example.tommorow.ui.HistoryFoodListActivity;
 import com.example.tommorow.ui.MapsActivity;
 import com.example.tommorow.ui.NutritionActivity;
 import com.example.tommorow.ui.PersonalProfile;
-import com.example.tommorow.ui.SettingActivity;
 import com.example.tommorow.ui.SettingAlarmActivity;
 import com.example.tommorow.utils.SharedPreferencesUtil;
 
@@ -64,8 +65,18 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         backImageView.setImageResource(R.drawable.ic_menu_white);
+        String welcomeString = "";
+        if(isMale()){
+             welcomeString = "Welcome to Elderly Health!" + "\n" + "Mr." + SharedPreferencesUtil.getInstance(this).getString(Const.FULLNAME) + "\n" + "Today is good weather to hang out~";
+        }else{
+             welcomeString = "Welcome to Elderly Health!" + "\n" + "Ms." + SharedPreferencesUtil.getInstance(this).getString(Const.FULLNAME) + "\n" + "Today is good weather to hang out~";
+        }
 
-        welcomeWindow("Welcome to Elderly Health!" + "\n" + "Mr." + SharedPreferencesUtil.getInstance(this).getString(Const.FULLNAME) + "\n" + "Today is good weather to hang out~");
+        welcomeWindow(welcomeString);
+    }
+
+    public boolean isMale(){
+        return SharedPreferencesUtil.getInstance(this).getString(Const.GENDER).equals("male");
     }
 
     @Override
@@ -74,6 +85,10 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
         drawerLayout.openDrawer(Gravity.START);
         TextView fullNameOnSideA =(TextView) findViewById(R.id.fullNameOnSide);
         fullNameOnSideA.setText(SharedPreferencesUtil.getInstance(this).getString(Const.FULLNAME));
+        de.hdodenhof.circleimageview.CircleImageView imageHead = (de.hdodenhof.circleimageview.CircleImageView) findViewById(R.id.circle_image);
+        if(!isMale()){
+            imageHead.setImageResource(R.drawable.female);
+        }
     }
 
     //close side menu when pressed back button
@@ -85,6 +100,32 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
             super.onBackPressed();
         }
     }
+    public void onGameClick(){
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(MainActivity.this);
+        builder1.setTitle("Choose a Game!");
+        builder1.setMessage("Game List: \n1. BERT'S BRAIN \n 2. CrossWords Puzzle");
+        builder1 .setPositiveButton("BERT'S BRAIN", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                Intent gameIntent = new Intent(MainActivity.this, GameActivity.class);
+                gameIntent.putExtra("gameUrl","http://www.wigsgames.com/html/bertsbrain/index.html");
+                startActivity(gameIntent);
+            }
+        });
+        builder1.setNegativeButton(
+                "CrossWords",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Intent gameIntent = new Intent(MainActivity.this, GameActivity.class);
+                        gameIntent.putExtra("gameUrl","https://www.theguardian.com/crosswords/quick/14657");
+                        startActivity(gameIntent);
+                    }
+                });
+        AlertDialog alert11 = builder1.create();
+        alert11.show();
+    }
+
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -117,19 +158,22 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 break;
 
             case R.id.nav_excercise:
-                Toast.makeText(MainActivity.this, "In Progress, will deliver in Iteration 3!", Toast.LENGTH_SHORT).show();
+                Intent exerciseIntent = new Intent(MainActivity.this, ExerciseActivity.class);
+                startActivity(exerciseIntent);
                 break;
 
             case R.id.nav_game:
-                Toast.makeText(MainActivity.this, "In Progress, will deliver in Iteration 3!", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.nav_setting:
-                Intent settingIntent = new Intent(MainActivity.this, SettingActivity.class);
-                startActivity(settingIntent);
+                onGameClick();
                 break;
 
+//            case R.id.nav_setting:
+//                Intent settingIntent = new Intent(MainActivity.this, SettingActivity.class);
+//                startActivity(settingIntent);
+//                break;
+
             case R.id.nav_about:
-                Toast.makeText(this, "You press about!", Toast.LENGTH_SHORT).show();
+                Intent aboutIntent = new Intent(MainActivity.this, AboutActivity.class);
+                startActivity(aboutIntent);
                 break;
             default:
                 break;
@@ -164,9 +208,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 break;
 
             case R.id.game:
-//                Intent gameIntent = new Intent(MainActivity.this, GameActivity.class);
-//                startActivity(gameIntent);
-                Toast.makeText(MainActivity.this, "In Progress, will deliver in Iteration 3!", Toast.LENGTH_SHORT).show();
+                onGameClick();
                 break;
 
             case R.id.alarm:
@@ -184,9 +226,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 startActivity(mapIntent);
                 break;
             case R.id.exercise:
-//            Intent exerciseIntent = new Intent(MainActivity.this, ExerciseActivity.class);
-//            startActivity(exerciseIntent);
-                Toast.makeText(MainActivity.this, "In Progress, will deliver in Iteration 3!", Toast.LENGTH_SHORT).show();
+            Intent exerciseIntent = new Intent(MainActivity.this, ExerciseActivity.class);
+            startActivity(exerciseIntent);
             break;
         }
     }

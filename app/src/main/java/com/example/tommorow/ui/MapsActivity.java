@@ -28,7 +28,7 @@ public class MapsActivity extends BaseActivity implements LocationListener {
 //    private LocationRequest mLocationRequest;
 //    private boolean mLocationUpdateState;
 //    private Location mLastLocation;
-    private static final String MAP_URL = "https://www.google.com.au/maps/search/hospital";
+    private static final String MAP_URL = "https://www.google.com.au/maps/search/hospitals";
     private WebView webView;
     private Location mostRecentLocation;
 

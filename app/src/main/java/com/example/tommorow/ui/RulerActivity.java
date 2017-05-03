@@ -63,7 +63,7 @@ public class RulerActivity extends BaseActivity {
         rulerView.setStartValue(20);
         rulerView.setEndValue(1000);
         rulerView.setPartitionWidthInDP(40);
-        rulerView.setPartitionValue(1);
+        rulerView.setPartitionValue(10);
         rulerView.setSmallPartitionCount(1);
         rulerView.setmValue(170);
         rulerView.setValueChangeListener(new RulerView.OnValueChangeListener() {

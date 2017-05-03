@@ -1,5 +1,7 @@
 package com.example.tommorow;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.text.Spanned;
@@ -20,6 +22,8 @@ import com.example.tommorow.wheelview.WheelView;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -128,6 +132,27 @@ public class RegisterActivity extends BaseActivity {
         day.setCurrentItem(curDate - 1);
     }
 
+    public boolean isValidPhone(String phone){
+        String regex = "^[0][0-9]{9}";
+        Pattern p = Pattern.compile(regex);
+        Matcher m = p.matcher(phone);
+        return m.matches();
+    }
+
+    public void alertWindow(String str){
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(RegisterActivity.this);
+        builder1.setTitle("Warning");
+        builder1.setMessage(str);
+        builder1 .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        AlertDialog alert11 = builder1.create();
+        alert11.show();
+    }
+
     @OnClick(R.id.register)
     public void onViewClicked() {
         mName = name.getText().toString().trim();
@@ -136,16 +161,19 @@ public class RegisterActivity extends BaseActivity {
         mFullName = fullName.getText().toString().trim();
         mWeight = weight.getText().toString().trim();
 
+
         mBirthday = year.getTextItem(year.getCurrentItem()) + "-" + String.valueOf(month.getCurrentItem() + 1) + "-" + String.valueOf(day.getCurrentItem() + 1);
         if (TextUtils.isEmpty(StringUtils.c(mName)) || TextUtils.isEmpty(StringUtils.c(mChildName)) || TextUtils.isEmpty(StringUtils.c(mPassWord)) || TextUtils.isEmpty(StringUtils.c(mFullName)) ||TextUtils.isEmpty(StringUtils.c(mWeight))) {
             Toast.makeText(RegisterActivity.this, "Please complete your information", Toast.LENGTH_LONG).show();
             return;
+        } else if(!isValidPhone(mName) && !isValidPhone(mChildName)){
+            alertWindow("Please use validate phone number in Austalia! \n E.g. 0432068888");
         } else {
             boolean isNewUser = true;
             UserDBUtils userDBUtils = new UserDBUtils(this);
             userList = userDBUtils.queryAllUser();
             for (int i = 0; i < userList.size(); i++) {
-                if (userList.get(i).getName().equals(mName) || userList.get(i).getChildName().equals(mChildName)) {
+                if (userList.get(i).getChildName().equals(mChildName)) {
                     Toast.makeText(RegisterActivity.this, "Account already exists，Please try again", Toast.LENGTH_LONG).show();
                     isNewUser = false;
                     return;

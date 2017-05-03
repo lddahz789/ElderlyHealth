@@ -15,14 +15,25 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center_horizontal"
+
             android:orientation="vertical">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/circle_image"
-                android:layout_width="140dp"
-                android:layout_height="117dp"
-                android:src="@drawable/head" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30px"
+                android:layout_marginLeft="20px"
+                android:text="Name:"
+                android:textSize="50px" />
+
+            <TextView
+                android:id="@+id/profile_fullName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20px"
+                android:layout_marginTop="30px"
+                android:text="Name"
+                android:textSize="50px" />
         </LinearLayout>
 
         <LinearLayout
@@ -32,22 +43,13 @@
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30px"
-                android:text="Name:"
-                android:textSize="50px" />
-
-            <TextView
-                android:id="@+id/profile_fullName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="30px"
-                android:text="Name"
-                android:textSize="50px" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/circle_image2"
+                android:layout_width="140dp"
+                android:layout_height="117dp"
+                android:src="@drawable/male" />
         </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
@@ -56,6 +58,22 @@
         android:layout_weight="2.77"
         android:orientation="vertical">
 
+
+        <TextView
+            android:id="@+id/profile_phoneNum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20px"
+            android:text="Phone Info"
+            android:textSize="50px" />
+
+        <TextView
+            android:id="@+id/profile_birth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20px"
+            android:text="Birth Info"
+            android:textSize="50px" />
 
         <TextView
             android:id="@+id/profile_gender"
@@ -68,50 +86,46 @@
 
 
         <TextView
-            android:id="@+id/profile_phoneNum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20px"
-            android:text="Phone Info"
+            android:text="Emergency Phone Number:"
             android:textSize="50px" />
 
-
-        <TextView
+        <EditText
             android:id="@+id/profile_relativePhone"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20px"
-            android:text="Phone Info"
-            android:textSize="50px" />
-
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_bg"
+            android:hint="Your Relative Phone number"
+            android:inputType="number" />
 
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20px"
+            android:text="Weight: (Kg)"
+            android:textSize="50px" />
+
+        <EditText
             android:id="@+id/profile_weight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20px"
-            android:text="Weight Info"
-            android:textSize="50px" />
-
-
-        <TextView
-            android:id="@+id/profile_birth"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20px"
-            android:text="Birth Info"
-            android:textSize="50px" />
-
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_bg"
+            android:hint="Your Weight"
+            android:inputType="number" />
 
     </LinearLayout>
     <Button
-        android:id="@+id/profile_preference_btn"
+        android:id="@+id/profile_update_btn"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/btn_bg"
-        android:text="Add Preference"
+        android:text="Update Information"
         android:textColor="@android:color/white"
         android:textSize="17sp" />
 

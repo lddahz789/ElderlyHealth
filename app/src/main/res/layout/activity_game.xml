@@ -5,55 +5,10 @@
 
 
     <include layout="@layout/tool_bar" />
-    <LinearLayout
+
+    <WebView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:id="@+id/breakfast"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginTop="@dimen/size_30px"
-                android:src="@drawable/icon_daily_breakfast" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/size_30px"
-                android:text="Game1"
-                android:textSize="@dimen/size_36px" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/lunch"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginTop="@dimen/size_30px"
-                android:src="@drawable/icon_daily_lunch" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/size_30px"
-                android:text="Game2"
-                android:textSize="@dimen/size_36px" />
-        </LinearLayout>
-    </LinearLayout>
-
+        android:layout_height="match_parent"
+        android:id="@+id/gameWeb"
+        />
 </LinearLayout>

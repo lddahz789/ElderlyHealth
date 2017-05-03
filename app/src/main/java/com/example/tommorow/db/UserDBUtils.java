@@ -3,8 +3,6 @@ package com.example.tommorow.db;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
-
 
 import com.example.tommorow.entity.User;
 
@@ -14,10 +12,11 @@ import java.util.List;
 /**
  * 用户业务实现类：
  */
-public class UserDBUtils {
+public class UserDBUtils{
 
     DBHelper helper = null;
     Context context;
+
 
     public UserDBUtils(Context context) {
         this.context = context;
@@ -74,4 +73,8 @@ public class UserDBUtils {
         }
         return users;
     }
+
+
+
+
 }

@@ -13,7 +13,7 @@
     <string name="input_alarm_hour">Enter Hour E.g. (0-24)</string>
     <string name="input_alarm_minute">Enter Minites (0-60)</string>
     <string name="input_alarm_message">Enter Medicine Information</string>
-    <string name="add_alarm">Add To Reminder</string>
+    <string name="add_alarm">Add Reminder</string>
     <string name="input_complete_message">Please enter complete information</string>
     <string name="username_passwd_error">Incorrect username or password</string>
     <string name="send_message">Send Message</string>
@@ -31,7 +31,7 @@
     <string name="intake">Intake</string>
     <string name="standard_value">Standard Value</string>
     <string name="recommendFood">Recommendations</string>
-    <string name="map">Find Nearest</string>
+    <string name="map">Nearby</string>
     <string name="exericise">Exercise</string>
     <string name="mian">My Health</string>
     <string name="nutrition">Nutrition</string>
@@ -39,4 +39,6 @@
     <string name="title_activity_maps">Map</string>
     <string name="setting">Setting</string>
     <string name="profile">My Profile</string>
+    <string name="about">About Us</string>
+    <string name="version">Version: 3.0</string>
 </resources>

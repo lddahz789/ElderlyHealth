@@ -59,7 +59,7 @@ public class AddFoodActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         type=getIntent().getIntExtra(Const.TYPE,0);
         ButterKnife.bind(this);
-        title.setText(getResources().getString(R.string.add_food));
+        title.setText("Add Food");
         progressDialog = new ProgressDialog(this);
         searchAdapter = new HistoryAdapter(searchModle, this, 2);
         listView.setAdapter(searchAdapter);

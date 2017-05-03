@@ -36,7 +36,7 @@
         android:layout_marginRight="@dimen/size_30px"
         android:layout_marginTop="@dimen/size_60px"
         android:background="@drawable/edit_bg"
-        android:hint="Enter Medicine Name: E.g.Aspirin"
+        android:hint="Medicine Name"
  />
 
         <EditText
@@ -48,7 +48,7 @@
             android:layout_marginRight="@dimen/size_30px"
             android:layout_marginTop="@dimen/size_60px"
             android:background="@drawable/edit_bg"
-            android:hint="Enter Amount: E.g.2 tablets"
+            android:hint="Quantity"
             />
 
         <Button

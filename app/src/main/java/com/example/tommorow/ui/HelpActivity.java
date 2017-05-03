@@ -1,15 +1,11 @@
 package com.example.tommorow.ui;
 
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.telephony.SmsManager;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.tommorow.BaseActivity;
 import com.example.tommorow.Constant.Const;
@@ -29,6 +25,8 @@ public class HelpActivity extends BaseActivity {
     Button send;
     @BindView(R.id.call)
     Button call;
+    @BindView(R.id.callAndMessage)
+    Button callAndMessage;
     @BindView(R.id.content)
     EditText content;
 
@@ -46,41 +44,57 @@ public class HelpActivity extends BaseActivity {
             content.setVisibility(View.GONE);
             send.setVisibility(View.GONE);
         }
+        content.setText("URGENT Please help me, I need emergency help!");
     }
 
-    @OnClick({R.id.send, R.id.call})
+    @OnClick({R.id.send, R.id.call,R.id.callAndMessage})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.send:
-                //发送短信
-                send();
+                //Send message
+                SendSMSTo(SharedPreferencesUtil.getInstance(this).getString(Const.PHONE_NUMBER),content.getText().toString() + "  My Cordinates: -37.8786037,145.045115");
                 break;
             case R.id.call:
-                //拨打电话
+                //Make phone Calls
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_CALL);
-                //url:统一资源定位符
-                //uri:统一资源标示符（更广）
                 intent.setData(Uri.parse("tel:" + SharedPreferencesUtil.getInstance(this).getString(Const.PHONE_NUMBER)));
-                //开启系统拨号器
                 startActivity(intent);
+                break;
+            case R.id.callAndMessage:
+
+                Intent intent2 = new Intent();
+                intent2.setAction(Intent.ACTION_CALL);
+                intent2.setData(Uri.parse("tel:" + SharedPreferencesUtil.getInstance(this).getString(Const.PHONE_NUMBER)));
+                startActivity(intent2);
+                SendSMSTo(SharedPreferencesUtil.getInstance(this).getString(Const.PHONE_NUMBER),content.getText().toString() + "  My Cordinates: -37.8786037,145.045115");
                 break;
         }
     }
 
-    private void send() { //创建一个PendingIntent对象
-        if (TextUtils.isEmpty(content.getText().toString())) {
-            Toast.makeText(HelpActivity.this, getResources().getString(R.string.input_complete_message), Toast.LENGTH_LONG).show();
-            return;
-        }
-
-        PendingIntent pi = PendingIntent.getActivity(
-                HelpActivity.this, 0, new Intent(), 0);
-        //获取SmsManager
-        SmsManager sManager = SmsManager.getDefault();
-        //发送短信
-        sManager.sendTextMessage(SharedPreferencesUtil.getInstance(this).getString(Const.PHONE_NUMBER), null, content.getText().toString(), pi, null);
-
+    public void SendSMSTo(String phoneNumber,String message){
+            //Uri.parse("smsto") 这里是转换为指定Uri,固定写法
+            Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("smsto:"+phoneNumber));
+            intent.putExtra("sms_body", message);
+            startActivity(intent);
     }
+
+
+
+
+//    private void send() { //创建一个PendingIntent对象
+//        if (TextUtils.isEmpty(content.getText().toString())) {
+//            Toast.makeText(HelpActivity.this, getResources().getString(R.string.input_complete_message), Toast.LENGTH_LONG).show();
+//            return;
+//        }
+//
+//        PendingIntent pi = PendingIntent.getActivity(
+//                HelpActivity.this, 0, new Intent(), 0);
+//        //获取SmsManager
+//        SmsManager sManager = SmsManager.getDefault();
+//        //发送短信
+//        sManager.sendTextMessage(SharedPreferencesUtil.getInstance(this).getString(Const.PHONE_NUMBER), null, content.getText().toString(), pi, null);
+//
+//    }
 
 }

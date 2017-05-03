@@ -75,7 +75,7 @@ public class LoginActivity extends Activity implements MediaPlayer.OnCompletionL
                     UserDBUtils userDBUtils = new UserDBUtils(this);
                     userList = userDBUtils.queryAllUser();
                     for (int i = 0; i < userList.size(); i++) {
-                        if ((userList.get(i).getName().equals(mName) || userList.get(i).getChildName().equals(mName)) && userList.get(i).getPassWord().equals(mPassWord)) {
+                        if (userList.get(i).getChildName().equals(mName) && userList.get(i).getPassWord().equals(mPassWord)) {
                             isLogin = true;
                             if (userList.get(i).getChildName().equals(mName)) {
                                 SharedPreferencesUtil.getInstance(this).putBoolean(Const.IS_CHILD, true);

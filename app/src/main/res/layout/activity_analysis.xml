@@ -50,6 +50,7 @@
             </LinearLayout>
 
             <View
+                android:id="@+id/view"
                 android:layout_width="match_parent"
                 android:layout_height="1px"
                 android:background="@color/c_cccccc" />
@@ -64,11 +65,11 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="@string/protein"
+                    android:text="Calories"
                     android:textSize="@dimen/size_30px" />
 
                 <TextView
-                    android:id="@+id/totalProtein"
+                    android:id="@+id/totalCalorie"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -76,16 +77,17 @@
                     android:textSize="@dimen/size_30px" />
 
                 <TextView
-                    android:id="@+id/standardProtein"
+                    android:id="@+id/standardCalorie"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="49-60(g)"
+                    android:text="1600-2000(Kcal)"
                     android:textSize="@dimen/size_30px" />
             </LinearLayout>
 
             <View
+                android:id="@+id/view"
                 android:layout_width="match_parent"
                 android:layout_height="1px"
                 android:background="@color/c_cccccc" />
@@ -158,6 +160,7 @@
             </LinearLayout>
 
             <View
+                android:id="@+id/view"
                 android:layout_width="match_parent"
                 android:layout_height="1px"
                 android:background="@color/c_cccccc" />
@@ -172,11 +175,11 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Calories"
+                    android:text="@string/protein"
                     android:textSize="@dimen/size_30px" />
 
                 <TextView
-                    android:id="@+id/totalCalorie"
+                    android:id="@+id/totalProtein"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -184,12 +187,12 @@
                     android:textSize="@dimen/size_30px" />
 
                 <TextView
-                    android:id="@+id/standardCalorie"
+                    android:id="@+id/standardProtein"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="1600-2000(Kcal)"
+                    android:text="49-60(g)"
                     android:textSize="@dimen/size_30px" />
             </LinearLayout>
 

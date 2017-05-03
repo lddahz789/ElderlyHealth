@@ -54,7 +54,7 @@ public class HistoryFoodListActivity extends BaseActivity {
         } else if (type == 2) {
             title.setText(getResources().getString(R.string.lunch));
         } else {
-            title.setText(getResources().getString(R.string.dinner));
+            title.setText("Today's Food");
         }
     }
 

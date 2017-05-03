@@ -21,6 +21,8 @@
         <com.example.tommorow.view.PieChartView
             android:id="@+id/eat_pie_chart"
             android:layout_width="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_height="200dp"
             android:background="@android:color/white"
             android:paddingBottom="40dp"

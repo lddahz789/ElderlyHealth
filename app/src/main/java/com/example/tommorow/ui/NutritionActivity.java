@@ -26,6 +26,8 @@ public class NutritionActivity extends BaseActivity {
     LinearLayout dinner;
     @BindView(R.id.analysis)
     LinearLayout analysis;
+    @BindView(R.id.history)
+    LinearLayout history;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +41,7 @@ public class NutritionActivity extends BaseActivity {
         return R.layout.activity_nutrition;
     }
 
-    @OnClick({R.id.dinner, R.id.analysis})
+    @OnClick({R.id.dinner, R.id.analysis, R.id.history})
     public void onViewClicked(View view) {
         switch (view.getId()) {
 //            case R.id.breakfast:
@@ -60,6 +62,10 @@ public class NutritionActivity extends BaseActivity {
             case R.id.analysis:
                 Intent analysisIntent = new Intent(NutritionActivity.this, AnalysisActivity.class);
                 startActivity(analysisIntent);
+                break;
+            case R.id.history:
+                Intent historyIntent = new Intent(NutritionActivity.this, HistoryActivity.class);
+                startActivity(historyIntent);
                 break;
         }
     }
