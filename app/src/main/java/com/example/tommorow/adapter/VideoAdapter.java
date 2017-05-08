@@ -14,9 +14,9 @@ import com.example.tommorow.entity.Video;
 import java.util.LinkedList;
 
 /**
- * Created by lenovo on 2017/5/3.
+ * Created by lyn on 2017/5/3.
+ * Video adapter, holds information of one record, define the appearance.
  */
-
 public class VideoAdapter extends BaseAdapter{
 
     private LinkedList<Video> mData;

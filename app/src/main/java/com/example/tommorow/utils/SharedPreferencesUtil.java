@@ -12,9 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * SharedPreferencesUtil 工具类 保持数据
+ * Created by lenovo on 2017/4/22.
+ * Util class
+ * SharedPreferencesUtil is to keep data
  */
-
 public class SharedPreferencesUtil {
     private static final String SHARED_PATH = "profile";
     private static SharedPreferencesUtil instance;

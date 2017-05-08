@@ -1,7 +1,7 @@
 package com.example.tommorow.entity;
 
 /**
- *用户的实体类
+ * User entity
  */
 
 public class User {

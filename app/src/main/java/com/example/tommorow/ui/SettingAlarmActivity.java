@@ -21,9 +21,11 @@ import butterknife.OnClick;
 
 
 /**
- * 闹钟的页面
+ * Created by lenovo on 2017/4/22.
+ * Controller class, corresponding to layout file
+ * This class will handle the alarm setting logic
+ * Layout file name: activity_setting_alarm.xml
  */
-
 public class SettingAlarmActivity extends BaseActivity {
 
     @BindView(R.id.medicine_name)

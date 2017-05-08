@@ -27,9 +27,11 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * 登录页面
+ * Created by lenovo on 2017/4/22.
+ * Controller class, corresponding to layout file
+ * This class will handle the log in logic
+ * Layout file name: activity_login.xml
  */
-
 public class LoginActivity extends Activity implements MediaPlayer.OnCompletionListener{
     @BindView(R.id.name)
     EditText name;

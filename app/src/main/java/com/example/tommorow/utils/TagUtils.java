@@ -6,10 +6,12 @@ import com.example.tommorow.Constant.Const;
 
 import java.util.Calendar;
 
-/**
- * 获取数据存SharePreferences工具类
- */
 
+/**
+ * Created by lenovo on 2017/4/22.
+ * Util class
+ * obtain data then stored to SharePreferences
+ */
 public class TagUtils {
 
     public static  String getTag(int type, Context context) {

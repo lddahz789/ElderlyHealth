@@ -1,7 +1,7 @@
 package com.example.tommorow.entity;
 
 /**
- * Created by lenovo on 2017/5/3.
+ * Video Entity
  */
 
 public class Video {

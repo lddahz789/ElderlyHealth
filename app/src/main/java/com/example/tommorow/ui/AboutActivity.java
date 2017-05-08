@@ -1,9 +1,5 @@
 package com.example.tommorow.ui;
 
-/**
- * Created by lenovo on 2017/4/23.
- */
-
 import android.os.Bundle;
 
 import com.example.tommorow.BaseActivity;
@@ -13,10 +9,10 @@ import butterknife.ButterKnife;
 
 /**
  * Created by lenovo on 2017/4/22.
+ * Controller class, corresponding to layout file
+ * Layout file name: activity_about.xml
  */
-
 public class AboutActivity extends BaseActivity {
-
 
 
 

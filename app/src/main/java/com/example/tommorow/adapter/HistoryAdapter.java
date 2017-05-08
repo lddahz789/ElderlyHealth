@@ -12,7 +12,9 @@ import com.example.tommorow.entity.FoodModel;
 import java.util.List;
 
 /**
- * 查看早中晚饭 添加食物的历史记录  注意 记录是每天凌晨清空
+ *
+ * Food history adapter that holds the information of food
+ * Food history will be reset and stored into database in midnight
  */
 
 public class HistoryAdapter extends BaseAdapter {

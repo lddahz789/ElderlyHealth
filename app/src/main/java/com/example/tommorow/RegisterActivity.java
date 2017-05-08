@@ -30,9 +30,11 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * 注册页面
+ * Created by lenovo on 2017/4/22.
+ * Controller class, corresponding to layout file
+ * This class will handle the registration logic
+ * Layout file name: activity_register.xml
  */
-
 public class RegisterActivity extends BaseActivity {
     @BindView(R.id.fullName)
     EditText fullName;
@@ -93,7 +95,7 @@ public class RegisterActivity extends BaseActivity {
 // get the gender information
         int radioButtonId = radioGroup.getCheckedRadioButtonId();
         RadioButton rb = (RadioButton)RegisterActivity.this.findViewById(radioButtonId);
-        mGender = rb.getText().toString().toLowerCase();
+        mGender = "male";
 
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 

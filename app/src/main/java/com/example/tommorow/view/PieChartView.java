@@ -18,9 +18,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 饼状统计图，带有标注线，都可以自行设定其多种参数选项
- * <p/>
- * Created By: Zhuo He Lyn
+ * Created by lenovo on 2017/4/22.
+ * view class
+ * pie chart
  */
 public class PieChartView extends View {
 
@@ -29,29 +29,23 @@ public class PieChartView extends View {
     private float mTextHeight;
 
     /**
-     * 饼图半径
+     * piechart radius
      */
     private float pieChartCircleRadius = 100;
 
     private float textBottom;
     /**
-     * 记录文字大小
+     * text size
      */
     private float mTextSize = 14;
 
-    /**
-     * 饼图所占矩形区域（不包括文字）
-     */
     private RectF pieChartCircleRectF = new RectF();
 
-    /**
-     * 饼状图信息列表
-     */
     private List<PieceDataHolder> pieceDataHolders = new ArrayList<>();
 
 
     /**
-     * 标记线长度
+     * the length of marker
      */
     private float markerLineLength = 30f;
 
@@ -103,7 +97,7 @@ public class PieChartView extends View {
     }
 
     /**
-     * 设置饼状图的半径
+     * set pieChartCircleRadius
      *
      * @param pieChartCircleRadius 饼状图的半径（px）
      */
@@ -115,9 +109,9 @@ public class PieChartView extends View {
     }
 
     /**
-     * 设置标记线的长度
+     * markerLineLength
      *
-     * @param markerLineLength 标记线的长度（px）
+     * @param markerLineLength markerLineLength（px）
      */
     public void setMarkerLineLength(int markerLineLength) {
         this.markerLineLength = markerLineLength;
@@ -178,9 +172,9 @@ public class PieChartView extends View {
     }
 
     /**
-     * 设置饼状图要显示的数据
+     * set the data of pie chart
      *
-     * @param data 列表数据
+     * @param data
      */
     public void setData(List<PieceDataHolder> data) {
 
@@ -193,12 +187,12 @@ public class PieChartView extends View {
     }
 
     /**
-     * 绘制扇形
+     * draw pie chart
      *
-     * @param canvas     画布
-     * @param color      要绘制扇形的颜色
-     * @param startAngle 起始角度
-     * @param sweepAngle 结束角度
+     * @param canvas
+     * @param color
+     * @param startAngle
+     * @param sweepAngle
      */
     protected void drawSector(Canvas canvas, int color, float startAngle, float sweepAngle) {
 
@@ -212,11 +206,11 @@ public class PieChartView extends View {
     }
 
     /**
-     * 绘制标注线和标记文字
      *
-     * @param canvas      画布
-     * @param color       标记的颜色
-     * @param rotateAngel 标记线和水平相差旋转的角度
+     *
+     * @param canvas
+     * @param color
+     * @param rotateAngel
      */
     protected void drawMarkerLineAndText(Canvas canvas, int color, float rotateAngel, String text) {
         Paint paint = new Paint();
@@ -251,26 +245,13 @@ public class PieChartView extends View {
     }
 
     /**
-     * 饼状图每块的信息持有者
+     * PieceDataHolder
      */
     public static final class PieceDataHolder {
 
-        /**
-         * 每块扇形的值的大小
-         */
         private float value;
-
-        /**
-         * 扇形的颜色
-         */
         private int color;
-
-        /**
-         * 每块的标记
-         */
         private String marker;
-
-
         public PieceDataHolder(float value, int color, String marker) {
             this.value = value;
             this.color = color;

@@ -17,9 +17,11 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * 求助Activity
+ * Created by lenovo on 2017/4/22.
+ * Controller class, corresponding to layout file
+ * Handle the emergency activity logic
+ * Layout file name: activity_help.xml
  */
-
 public class HelpActivity extends BaseActivity {
     @BindView(R.id.send)
     Button send;
@@ -72,29 +74,14 @@ public class HelpActivity extends BaseActivity {
         }
     }
 
+    /**
+     * @param phoneNumber
+     * @param message
+     * send message function
+     */
     public void SendSMSTo(String phoneNumber,String message){
-            //Uri.parse("smsto") 这里是转换为指定Uri,固定写法
             Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("smsto:"+phoneNumber));
             intent.putExtra("sms_body", message);
             startActivity(intent);
     }
-
-
-
-
-//    private void send() { //创建一个PendingIntent对象
-//        if (TextUtils.isEmpty(content.getText().toString())) {
-//            Toast.makeText(HelpActivity.this, getResources().getString(R.string.input_complete_message), Toast.LENGTH_LONG).show();
-//            return;
-//        }
-//
-//        PendingIntent pi = PendingIntent.getActivity(
-//                HelpActivity.this, 0, new Intent(), 0);
-//        //获取SmsManager
-//        SmsManager sManager = SmsManager.getDefault();
-//        //发送短信
-//        sManager.sendTextMessage(SharedPreferencesUtil.getInstance(this).getString(Const.PHONE_NUMBER), null, content.getText().toString(), pi, null);
-//
-//    }
-
 }

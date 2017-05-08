@@ -14,9 +14,12 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * Created by lenovo on 2017/4/6.
+ * Created by lenovo on 2017/4/22.
+ * Controller class, corresponding to layout file
+ * Handle map nutrition logic
+ * Navigation to three child elements
+ * Layout file name: activity_nutrition.xml
  */
-
 public class NutritionActivity extends BaseActivity {
 //    @BindView(R.id.breakfast)
 //    LinearLayout breakfast;

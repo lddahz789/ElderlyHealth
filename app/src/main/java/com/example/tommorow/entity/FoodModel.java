@@ -3,9 +3,8 @@ package com.example.tommorow.entity;
 import java.io.Serializable;
 
 /**
- * 食物的实体类  继承Serializable  是为了用Intent传送数据
+ * Entitiy of Food  extends Serializable  in order to send data using intent
  */
-
 public class FoodModel implements Serializable{
     private String foodName;
     private String energy;

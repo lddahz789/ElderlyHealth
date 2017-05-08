@@ -6,9 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 推荐食物的工具类  数据是你给的excel数据
+ * Created by lenovo on 2017/4/22.
+ * Util class
+ * extracting excel data and giving some recommended food
+ * logic: given one random food by nutrition element, then do the combination
  */
-
 public class RecommendFoodUtils {
     private static RecommendFoodUtils instance;
     private List<List<RecommendFood>> proteinData = new ArrayList<>();

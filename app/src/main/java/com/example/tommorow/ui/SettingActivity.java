@@ -7,10 +7,14 @@ import com.example.tommorow.R;
 
 import butterknife.ButterKnife;
 
-/**
- * Created by lenovo on 2017/4/10.
- */
 
+/**
+ * Created by lenovo on 2017/4/22.
+ * Controller class, corresponding to layout file
+ * This class will not be used
+ * Available is future
+ * Layout file name: activity_setting.xml
+ */
 public class SettingActivity extends BaseActivity {
 
 

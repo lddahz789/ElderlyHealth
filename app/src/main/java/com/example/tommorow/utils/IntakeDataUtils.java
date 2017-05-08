@@ -8,9 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 读取Excel的工具类
+ * Created by lenovo on 2017/4/22.
+ * Util class
+ * Reading excel util
  */
-
 public class IntakeDataUtils {
     private static IntakeDataUtils instance;
     private Context context;
@@ -30,6 +31,9 @@ public class IntakeDataUtils {
         this.context = context.getApplicationContext();
     }
 
+    /**
+     * @return
+     */
     public double[] calculation() {
         double[] data = new double[3];
         double fat = 0;

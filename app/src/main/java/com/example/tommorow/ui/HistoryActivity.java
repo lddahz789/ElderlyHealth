@@ -8,7 +8,9 @@ import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.example.tommorow.BaseActivity;
+import com.example.tommorow.Constant.Const;
 import com.example.tommorow.R;
+import com.example.tommorow.utils.SharedPreferencesUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -38,25 +40,35 @@ public class HistoryActivity extends BaseActivity{
         ButterKnife.bind(this);
         title.setText("My History");
         list_history = (ListView) findViewById(R.id.listViewHistory);
-
-        int lengh = mListTitle.length;
-        for(int i =0; i < lengh; i++) {
-            Map<String,Object> item = new HashMap<String,Object>();
-            item.put("title", mListTitle[i]);
-            item.put("text", mListStr[i]);
-            mData.add(item);
-        }
-        SimpleAdapter adapter = new SimpleAdapter(this,mData,android.R.layout.simple_list_item_2,
-                new String[]{"title","text"},new int[]{android.R.id.text1,android.R.id.text2});
-        list_history.setAdapter(adapter);
-
-
-        list_history.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position,
-                                    long id) {
-                Toast.makeText(HistoryActivity.this,"You have chosen：" + mListTitle[position] + "Conent："+mListStr[position], Toast.LENGTH_LONG).show();
+        if (!isMainAcount()){
+            mListTitle = null;
+            mListStr = null;
+        }else {
+            int lengh = mListTitle.length;
+            for (int i = 0; i < lengh; i++) {
+                Map<String, Object> item = new HashMap<String, Object>();
+                item.put("title", mListTitle[i]);
+                item.put("text", mListStr[i]);
+                mData.add(item);
             }
-        });
+            SimpleAdapter adapter = new SimpleAdapter(this, mData, android.R.layout.simple_list_item_2,
+                    new String[]{"title", "text"}, new int[]{android.R.id.text1, android.R.id.text2});
+            list_history.setAdapter(adapter);
+
+
+            list_history.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int position,
+                                        long id) {
+                    Toast.makeText(HistoryActivity.this, "You have chosen：" + mListTitle[position] + "Conent：" + mListStr[position], Toast.LENGTH_LONG).show();
+                }
+            });
+        }
     }
+
+
+public boolean isMainAcount(){
+    return "0432068116".equals(SharedPreferencesUtil.getInstance(this).getString(Const.USER_NAME));
 }
+}
+

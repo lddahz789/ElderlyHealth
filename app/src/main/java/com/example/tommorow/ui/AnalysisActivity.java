@@ -24,9 +24,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * 分析的activity
+ * Created by lenovo on 2017/4/22.
+ * Controller class, corresponding to layout file
+ * Handle the analysis logic
+ * Layout file name: activity_analysis.xml
  */
-
 public class AnalysisActivity extends BaseActivity {
 
     @BindView(R.id.totalProtein)
@@ -73,7 +75,9 @@ public class AnalysisActivity extends BaseActivity {
         initData();
     }
 
-    //初始化数据
+    /**
+     * initial the data
+     */
     private void initData() {
 
         data = IntakeDataUtils.getInstance(this).calculation();
@@ -86,14 +90,20 @@ public class AnalysisActivity extends BaseActivity {
     }
 
 
-    //double数据保留一位小数
+    /**
+     * @param dou
+     * @return
+     * double, keep one digits
+     */
     public double changeDouble(Double dou) {
         NumberFormat nf = new DecimalFormat("0.0 ");
         dou = Double.parseDouble(nf.format(dou));
         return dou;
     }
 
-    //随机选择推荐食物
+    /**
+     * generate random food recommands
+     */
     private void initRecommendFood() {
         Double calorie = 30 * getWeight();
         Double sCarbon = calorie*0.55/4;
@@ -113,6 +123,10 @@ public class AnalysisActivity extends BaseActivity {
         getRecommendProtein(protein);
     }
 
+    /**
+     * @return
+     * transfer the string age to double
+     */
     public Double getDoubleAge()
     {
         String strAge = String.valueOf(getAge());
@@ -120,6 +134,10 @@ public class AnalysisActivity extends BaseActivity {
         return doubleAge;
     }
 
+    /**
+     * @return
+     * get the weight data from const
+     */
     public Double getWeight()
     {
         Double doubleWeight = 80.0;
@@ -133,7 +151,10 @@ public class AnalysisActivity extends BaseActivity {
 }
 
 
-    //To calculate age of user
+    /**
+     * @return
+     * /To calculate age of user
+     */
     public int getAge() {
         Format f = new SimpleDateFormat("yyyy-MM-dd");
         Date birthDay=null;
@@ -172,7 +193,10 @@ public class AnalysisActivity extends BaseActivity {
     }
 
 
-
+    /**
+     * @param fat
+     * get recommend fat.
+     */
     private void getRecommendFat(double fat) {
         int status = -1;
         if (fat > 0 & fat < 10) {
@@ -199,6 +223,10 @@ public class AnalysisActivity extends BaseActivity {
         amountrecommendFat.setVisibility(status == -1 ? View.GONE : View.VISIBLE);
     }
 
+    /**
+     * @param carbohydrates
+     * get recommend carbohydrates
+     */
     private void getRecommendCarbohydrates(double carbohydrates) {
         int status = -1;
         if (carbohydrates > 0 & carbohydrates < 25) {
@@ -237,6 +265,10 @@ public class AnalysisActivity extends BaseActivity {
         amountrecommendCarbohydrates.setVisibility(status == -1 ? View.GONE : View.VISIBLE);
     }
 
+    /**
+     * @param protein
+     * getRecommendProtein
+     */
     private void getRecommendProtein(double protein) {
         int status = -1;
         if (protein > 0 & protein < 10) {

@@ -1,7 +1,7 @@
 package com.example.tommorow.entity;
 
 /**
- * 推荐食物的实体类
+ * Recommand food entity
  */
 
 public class RecommendFood {

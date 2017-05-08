@@ -19,9 +19,9 @@ import com.example.tommorow.utils.Utils;
 
 
 /**
- * TODO
- * 1. 配置属性添加到style.xml里面
- * 2. 设置start和end value可以为小数
+ * Created by lenovo on 2017/4/22.
+ * view class
+ * ruler view
  */
 public class RulerView extends View {
 

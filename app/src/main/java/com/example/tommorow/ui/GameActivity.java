@@ -15,9 +15,12 @@ import butterknife.ButterKnife;
 import static com.example.tommorow.R.id.gameWeb;
 
 /**
- * Created by lenovo on 2017/4/6.
+ * Created by lenovo on 2017/4/22.
+ * Controller class, corresponding to layout file
+ * Handle the game activity logic
+ * Hold a webview to set html5 game
+ * Layout file name: activity_game.xml
  */
-
 public class GameActivity extends BaseActivity {
     private String webUrl = "http://www.wigsgames.com/html/bertsbrain/index.html";
     private WebView gameView;
@@ -43,25 +46,28 @@ public class GameActivity extends BaseActivity {
         //enable javascript
         WebSettings settings = gameView.getSettings();
         settings.setJavaScriptEnabled(true);
-        settings.setUseWideViewPort(true);//设定支持viewport
-        settings.setLoadWithOverviewMode(true);   //自适应屏幕
+        settings.setUseWideViewPort(true);//set viewport
+        settings.setLoadWithOverviewMode(true);   //adjusted to window
         settings.setBuiltInZoomControls(true);
         settings.setDisplayZoomControls(false);
-        settings.setSupportZoom(true);//设定支持缩放
-        //WebView加载web资源
+        settings.setSupportZoom(true);
+        //WebView load the web resource
         gameView.loadUrl(webUrl);
-        //覆盖WebView默认使用第三方或系统默认浏览器打开网页的行为，使网页用WebView打开
+        //overload WebView
         gameView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 // TODO Auto-generated method stub
-                //返回值是true的时候控制去WebView打开，为false调用系统浏览器或第三方浏览器
                 view.loadUrl(url);
                 return true;
             }
         });
     }
 
+    /**
+     * Override the back button
+     *
+     */
     @Override
     public void onBackPressed() {
         if (gameView.canGoBack()) {

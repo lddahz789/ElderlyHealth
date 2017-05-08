@@ -4,9 +4,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * 去除空格的工具类
+ * Created by lenovo on 2017/4/22.
+ * Util class
+ * remove blank space
  */
-
 public class StringUtils {
 
     public static String c(String str) {

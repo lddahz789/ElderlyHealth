@@ -24,9 +24,12 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * 添加食物的最后一个页面的Activity
+ * Created by lenovo on 2017/4/22.
+ * Controller class, corresponding to layout file
+ * Handle add food detail logic
+ * this page shows the detail info of selected food
+ * Layout file name: activity_ruler.xml
  */
-
 public class RulerActivity extends BaseActivity {
     @BindView(R.id.rulerView)
     RulerView rulerView;

@@ -17,6 +17,14 @@ import com.example.tommorow.R;
 
 import butterknife.ButterKnife;
 
+/**
+ * Created by lenovo on 2017/4/22.
+ * Controller class, corresponding to layout file
+ * Handle map activity logic
+ * Current Code is using webview to show google map
+ * API code were commented
+ * Layout file name: activity_map.xml
+ */
 public class MapsActivity extends BaseActivity implements LocationListener {
 
 
@@ -61,14 +69,11 @@ public class MapsActivity extends BaseActivity implements LocationListener {
             }
         });
 
-        //WebView加载web资源
         webView.loadUrl(MAP_URL);
-        //覆盖WebView默认使用第三方或系统默认浏览器打开网页的行为，使网页用WebView打开
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 // TODO Auto-generated method stub
-                //返回值是true的时候控制去WebView打开，为false调用系统浏览器或第三方浏览器
                 view.loadUrl(url);
                 return true;
             }

@@ -19,9 +19,11 @@ import java.util.List;
 import butterknife.ButterKnife;
 
 /**
- * Created by lenovo on 2017/5/3.
+ * Created by lenovo on 2017/4/22.
+ * Controller class, corresponding to layout file
+ * Handle the exercise activity logic
+ * Layout file name: activity_exercise.xml
  */
-
 public class ExerciseActivity extends BaseActivity implements AdapterView.OnItemClickListener {
 
 
@@ -51,6 +53,16 @@ public class ExerciseActivity extends BaseActivity implements AdapterView.OnItem
         list_video.setAdapter(mAdapter);
         list_video.setOnItemClickListener(this);
     }
+
+
+    /**
+     * @param adapterView
+     * @param view
+     * @param i
+     * @param l
+     * Item onclick method
+     * open different mp4 file through parameters
+     */
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
@@ -58,7 +70,6 @@ public class ExerciseActivity extends BaseActivity implements AdapterView.OnItem
         int rawId = getResources().getIdentifier(name,"raw",getPackageName());
         String path = "android.resource://" + getPackageName() + "/" + rawId;
 //       Toast.makeText(mContext,path,Toast.LENGTH_SHORT).show();
-
         Intent exerciseIntent = new Intent(ExerciseActivity.this, VideoActivity.class);
         exerciseIntent.putExtra("url",path);
         startActivity(exerciseIntent);

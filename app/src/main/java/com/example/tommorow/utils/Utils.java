@@ -7,7 +7,9 @@ import android.graphics.Rect;
 import android.util.DisplayMetrics;
 
 /**
- * 自定义尺子的工具类 尺寸
+ * Created by lenovo on 2017/4/22.
+ * Util class
+ * self-defined ruler
  */
 public class Utils {
 

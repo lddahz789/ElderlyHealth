@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 用户业务实现类：
+ * User Logic implementation class
  */
 public class UserDBUtils{
 
@@ -23,6 +23,11 @@ public class UserDBUtils{
         helper = new DBHelper(context);
     }
 
+
+    /**
+     * @param user
+     * addd a new record to databse
+     */
     public void regist(User user) {
         SQLiteDatabase database = null;
         try {
@@ -42,7 +47,10 @@ public class UserDBUtils{
     }
 
 
-
+    /**
+     * @return
+     * Searching all users
+     */
     public List<User> queryAllUser() {
         List<User> users = new ArrayList<>();
         SQLiteDatabase database = null;

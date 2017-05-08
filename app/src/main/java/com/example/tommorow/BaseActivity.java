@@ -1,19 +1,16 @@
 package com.example.tommorow;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.tommorow.R;
-
 
 /**
- * Activity基类  封装toolbar
+ * Activity base class
+ * toolbar
  */
-
 public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
     public  ImageView backImageView;
   public   TextView title;

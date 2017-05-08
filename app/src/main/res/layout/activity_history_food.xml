@@ -6,11 +6,13 @@
 
     <include layout="@layout/tool_bar" />
 
+
     <ListView
     android:id="@+id/listView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/size_10px" />
+    android:layout_marginTop="@dimen/size_10px"
+        android:layout_weight="1"/>
     <TextView
         android:visibility="gone"
         android:id="@+id/empty"
@@ -19,4 +21,14 @@
         android:gravity="center"
         android:text="@string/no_data"
         android:textSize="@dimen/size_36px" />
+
+    <Button
+        android:id="@+id/goToReport"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/btn_bg"
+        android:text="Go to Report"
+        android:textColor="@android:color/white"
+        android:textSize="17sp" />
 </LinearLayout>

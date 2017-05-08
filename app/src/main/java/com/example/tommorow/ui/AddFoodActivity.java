@@ -32,9 +32,11 @@ import jxl.Sheet;
 import jxl.Workbook;
 
 /**
- * 添加食物的Activity
+ * Created by lenovo on 2017/4/22.
+ * Controller class, corresponding to layout file
+ * Handle the adding food logic
+ * Layout file name: activity_add.xml
  */
-
 public class AddFoodActivity extends BaseActivity {
 
     @BindView(R.id.key)
@@ -68,7 +70,7 @@ public class AddFoodActivity extends BaseActivity {
     }
 
     private void setEvent() {
-        //监听输入框的文字信息变化
+        //onchange listener, once the input words changes this method will be invoked
         key.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -88,7 +90,7 @@ public class AddFoodActivity extends BaseActivity {
 
             }
         });
-        //listView的item点击事件
+        //onclick events for listview
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -99,7 +101,12 @@ public class AddFoodActivity extends BaseActivity {
             }
         });
     }
-        //通过关键字来搜索食物
+
+    /**
+     * @param key
+     * Through the key words, searching the food from database
+     * In this case, csv file
+     */
     public void search(String key) {
         searchModle.clear();
         for (FoodModel foodModel : allFood) {
@@ -113,12 +120,11 @@ public class AddFoodActivity extends BaseActivity {
     }
 
     /**
-     * 获取 excel 表格中的数据,不能在主线程中调用
+     * get the data from excel ,can't be invoked in main thread
      *
-     * @param xlsName excel 表格的名称
-     * @param index   第几张表格中的数据
+     * @param xlsName the name of excel
+     * @param index
      */
-
     private ArrayList<FoodModel> getXlsData(String xlsName, int index) {
         ArrayList<FoodModel> foodModelArrayList = new ArrayList<FoodModel>();
         AssetManager assetManager = getAssets();
@@ -138,7 +144,7 @@ public class AddFoodActivity extends BaseActivity {
 
             for (int i = 1; i < sheetRows; i++) {
                 FoodModel foodModel = new FoodModel();
-                //前面是列 后面是行
+                //first columns, second record
                 foodModel.setFoodName(sheet.getCell(2, i).getContents());
                 foodModel.setEnergy(sheet.getCell(4, i).getContents());
                 foodModel.setProtein(Double.parseDouble(sheet.getCell(7, i).getContents()));
@@ -156,7 +162,10 @@ public class AddFoodActivity extends BaseActivity {
         return foodModelArrayList;
     }
 
-    //在异步方法中 调用
+
+    /**
+     * invoked in asyntasks
+     */
     private class ExcelDataLoader extends AsyncTask<String, Void, ArrayList<FoodModel>> {
 
         @Override

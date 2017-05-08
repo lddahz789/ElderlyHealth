@@ -30,7 +30,10 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * 主界面activity
+ * Created by lenovo on 2017/4/22.
+ * Controller class, corresponding to layout file
+ * This class will handle the main navigation logic
+ * Layout file name: activity_main.xml
  */
 public class MainActivity extends BaseActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -118,7 +121,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         Intent gameIntent = new Intent(MainActivity.this, GameActivity.class);
-                        gameIntent.putExtra("gameUrl","https://www.theguardian.com/crosswords/quick/14657");
+                        gameIntent.putExtra("gameUrl","https://www.boatloadpuzzles.com/playcrossword");
                         startActivity(gameIntent);
                     }
                 });

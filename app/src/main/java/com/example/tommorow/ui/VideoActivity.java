@@ -11,10 +11,13 @@ import com.example.tommorow.R;
 
 import butterknife.ButterKnife;
 
-/**
- * Created by lenovo on 2017/5/3.
- */
 
+/**
+ * Created by lenovo on 2017/4/22.
+ * Controller class, corresponding to layout file
+ * This class will handle the video displaying logic
+ * Layout file name: activity_video.xml
+ */
 public class VideoActivity extends BaseActivity{
 
     VideoView myVideo;
@@ -23,6 +26,7 @@ public class VideoActivity extends BaseActivity{
     public int getContnetView() {
         return R.layout.activity_video;
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,9 +1,10 @@
 package com.example.tommorow.Constant;
 
-/**
- * 保持系统的一些全部变量
- */
 
+/**
+ * Const class
+ * Holds the final String that system needs
+ */
 public class Const {
     public static String USER_NAME="userName";
     public static String IS_CHILD="is_child";

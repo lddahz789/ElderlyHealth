@@ -29,8 +29,11 @@ import butterknife.OnClick;
 
 /**
  * Created by lenovo on 2017/4/22.
+ * Controller class, corresponding to layout file
+ * Handle map personal profile logic
+ * Users can check, update their basic informations
+ * Layout file name: activity_profile.xml
  */
-
 public class PersonalProfile extends BaseActivity {
     private SQLiteDatabase db;
     private DBHelper myDBHelper;
@@ -77,6 +80,9 @@ public class PersonalProfile extends BaseActivity {
         return output;
     }
 
+    /**
+     * initiate personal data from const
+     */
     private void init(){
 
         fullName.setText(SharedPreferencesUtil.getInstance(this).getString(Const.FULLNAME));
@@ -115,11 +121,20 @@ public class PersonalProfile extends BaseActivity {
     }}
 
 
-
+    /**
+     * @return
+     * check if the user is male
+     * for differenct tittles and icons
+     */
     public boolean isMale(){
         return SharedPreferencesUtil.getInstance(this).getString(Const.GENDER).equals("male");
     }
 
+    /**
+     * @param phone
+     * @return
+     * check whether if the phone nunber is valid
+     */
     public boolean isValidPhone(String phone){
         String regex = "^[0][0-9]{9}";
         Pattern p = Pattern.compile(regex);
