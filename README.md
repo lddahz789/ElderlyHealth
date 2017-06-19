@@ -1,5 +1,6 @@
 # ElderlyHealth Andoird application
-## Monash-IE-507P-Terminators
+## Monash-IE-507P-Terminators Code by ZHUO HE (Lyn)
+
 
 > ElderlyHealth is an Andoird application desgined for elderly people to help them to live a healthier life
 
